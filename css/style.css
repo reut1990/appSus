@@ -1,0 +1,28 @@
+/* @import "tablet.css"  screen and (min-width : 420px);
+@import "desktop.css"  screen and (min-width : 1024px); */
+
+
+*{
+    Box-sizing:border-box;
+}
+    
+html,body{
+    height: 100%;
+	margin: 0;
+}
+
+
+
+.container {
+ display: flex;
+ flex-direction: column;
+ height: 100%; 
+ justify-content: space-between;
+}
+
+
+@media(min-width:420px){/* tablet  */
+}
+
+@media(min-width:1024px){/* desktop */
+}
