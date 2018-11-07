@@ -8,9 +8,11 @@ export default {
     template: `
         <section class="">
               
-            <email-list v-bind:class="isEmailSelected" @selected-email="setSelectedEmail" :emails="emails"></email-list>   
+            <email-list  @selected-email="setSelectedEmail" :emails="emails"></email-list>   
         </section>
     `,
+
+    //v-bind:class="isEmailSelected"   took out this line not sure if needed
     data() {
         return {
             emails:[],
