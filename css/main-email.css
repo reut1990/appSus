@@ -34,3 +34,7 @@
     outline:1px solid black;
     padding: 30px;
 }
+
+.selected{
+    background-color: lightblue;
+}
