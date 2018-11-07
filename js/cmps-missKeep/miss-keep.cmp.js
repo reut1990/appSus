@@ -3,7 +3,7 @@
 import eventBus, { CLOSE_COMPONENT } from '../event-bus.js'
 import textNote from '../cmps-missKeep/text-note.cmp.js';
 import newImg from '../cmps-missKeep/new-img.cmp.js';
-import newImg from '../cmps-missKeep/new-list.cmp.js';
+import newList from '../cmps-missKeep/new-list.cmp.js';
 
 
 
