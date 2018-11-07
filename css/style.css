@@ -7,19 +7,159 @@
 }
     
 html,body{
-    height: 100%;
+    height: 100vh;
 	margin: 0;
 }
+/********************miss-keep header********************  */
 
-
-
-.container {
- display: flex;
- flex-direction: column;
- height: 100%; 
- justify-content: space-between;
+.miss-keep-app h1{
+   text-align: center;
+    text-shadow: 5px 2px 2px lightblue;
+    background-color: aliceblue;
+    border-radius: 25px;
+    font-size: 30px;
+    padding: 5px; 
 }
 
+
+/****************** input container************** */
+.container{
+    display: flex;
+    flex-direction: row;;
+    justify-content: center;
+    border:2px outset gray;
+    width: 60%;
+    margin: auto 
+}
+.input-form{
+    margin: auto 10px;
+
+}
+
+.input-form input{
+    height: 30px;
+}
+.new-list-img{
+    height: 60px;
+    width: 60px;
+}
+
+.new-list{
+    height: 40px;
+    width: 40px;
+    margin: auto 0;
+}
+
+/************************ tool tip ***********************88*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; */
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/***************************** text note*****************************888*/
+
+
+.text-note{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid lightblue;
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+}
+
+#txt-box{
+        resize: none;
+        width: 400px;
+        min-height: 100px;
+        padding: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+    
+}
+
+.input-form-header{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.input-form-header input{
+    height: 30px;
+    width: 370px;
+}
+.input-form-header img{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.edit-text-note{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+}
+/*****************new image note ******************8 */
+
+.upload-img-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container{
+    height: 200px;
+    width: 200px;
+    border: 2px solid lightblue;
+}
+
+.img-container p{
+text-align: center;
+}
+
+.input-src{
+    display: flex;
+    flex-direction: row;
+}
 
 @media(min-width:420px){/* tablet  */
 }
