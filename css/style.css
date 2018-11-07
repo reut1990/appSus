@@ -161,6 +161,54 @@ text-align: center;
     flex-direction: row;
 }
 
+
+/**************************List note************************/
+
+/* Panel */
+.panel, li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	list-style-type: none;
+	padding: 10px;
+	border-bottom: 1px solid #efefef;
+	background-color: #E7E8EB;
+}
+
+/* Task  area */
+
+.list li {
+	background-color: #3465A4;
+}
+
+.list li button {
+	background-color: transparent;
+	border: 1px solid #3465A4;
+	color: #ddd;
+	visibility: hidden;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.list li:hover > button {
+	visibility: visible;
+}
+
+.list label {
+	padding-right: 10px;
+	display: inline-block;
+	width: 70%;
+	font-size: 18px;
+	line-height: 24px;
+	color: #fcfcfc;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.list li.done label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
 @media(min-width:420px){/* tablet  */
 }
 
