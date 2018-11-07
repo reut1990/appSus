@@ -1,7 +1,8 @@
 
 
 import eventBus, { CLOSE_COMPONENT } from '../event-bus.js'
-
+import { missKeepService } from '../services-missKeep/service-missKeep.js';
+import {utilService} from '../services-missKeep/utils.js'
 
 export default {
     // props: ['books'],
@@ -16,34 +17,43 @@ export default {
         </form>
         <div class="edit-text-note">
             <input type="color" id="html5colorpicker" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" >
-             <button type="button" v-on:click="close">Close</button>     
+            <div class="buttons">
+                <button type="button" v-on:click="close">Close</button> 
+                 <button  @click="addNote" type="button" >Add note</button>  
+             </div> 
         </div>  
     </section>
     `,
     data() {
         return {
-          title:'',
-          txt:'',
+            title: '',
+            txt: '',
         }
     },
 
     methods: {
-        close(){
+        close() {
             eventBus.$emit(CLOSE_COMPONENT);
-    
-          },
-        //    onTextTyping(){
-        //      $("#txt-box").on('input', function() {
-        //     var scroll_height = $("#txt-box").get(0).scrollHeight;
-        
-        //     $("#txt-box").css('height', scroll_height + 'px');
-        // });
-      },
+
+        },
+        addNote(){
+            let note={
+                type:'txt',
+                id:utilService.makeId(),
+                title:this.title,
+                txt:this.txt,
+            }
+            missKeepService.addNote(note);
+        },
+ 
+    },
     computed: {
-     
-       
+
+
     },
     components: {
+        missKeepService,
+        utilService,
     }
 }
 
