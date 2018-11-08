@@ -5,15 +5,6 @@ import routes from './routes.js'
 const router = new VueRouter({routes})
 
 
-<<<<<<< HEAD
-new Vue({
-    el: '#app',
-    router,
-    // components: {
-    //     emailApp
-    // }
-  })
-=======
 import navBar from './nav-bar.cmp.js'
 import myRoutes from './routes.js'
 
@@ -56,4 +47,3 @@ new Vue({
 //         emailApp
 //     }
 //   })
->>>>>>> f9501db9c5dbb49d500691f211220b3b23204bee
