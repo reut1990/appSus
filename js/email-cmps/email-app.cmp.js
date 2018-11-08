@@ -1,5 +1,6 @@
 import emailList from './email-list.cmp.js'
 import emailPreview from './email-preview.cmp.js'
+import { emailServices } from '../email-services/email-services.js'
 
 // import emailDetails from './email-details.cmp.js'
 import {emailServices} from '../email-services/email-services.js'
@@ -37,7 +38,8 @@ export default {
     },
     components: {
         emailList,
-        emailPreview
+        emailPreview,
+        emailServices,
         // emailDetails
     }
 }
