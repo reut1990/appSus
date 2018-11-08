@@ -1,11 +1,11 @@
 export default {
     props: ['email'],
     template: `
-        <section class="email">
+        <router-link tag="section" :to="'/email/' + email.id" class="email">
                <span class="email-subject">Subject: {{email.subject}}</span>
                <span class="email-body">Body:{{emailText}}</span> <span class="email-timestamp">{{email.sentAt}}</span>
-                <button v-on:click="emailIsReadStatus" >{{email.isRead}}</button>
-            </section>
+                <button v-on:click="toggleReadStatus" >{{email.isRead}}</button>
+            </router-link>
     `,
     data() {
         return {
@@ -17,17 +17,8 @@ export default {
 
     },
     methods: {
-        emailIsReadStatus() {
-            console.log('the button was presseed', this.email.isRead);
-            var emailStatus = false;
-            if (this.email.isRead === false) {
-                this.email.isRead = true;
-                emailStatus=true;
-            } else {
-                this.email.isRead = false;
-            }
-            
-            this.$emit('isEmailRead', emailStatus )
+        toggleReadStatus() {
+            this.email.isRead = !this.email.isRead;            
         }
        
     },
