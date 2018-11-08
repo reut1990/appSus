@@ -23,11 +23,11 @@ export default{
               <span class="tooltiptext">New List</span>
           </div>
           <div class="tooltip" >
-              <img  v-on:click="inputClicked('new-img')" class="new-list-img"src="../../img/newImage.png" alt="new Image">
+              <img  v-on:click="inputClicked('new-img')" class="new-list-img"src="./img/newImage.png" alt="new Image">
               <span class="tooltiptext">New Note with Image Note</span>
           </div>
       </div>
-      <img class="pin"   v-if="!isShow" src="../../img/pin-icon.png">
+      <img class="pin"   v-if="!isShow" src="./img/pin-icon.png">
             <component 
                ref="noteForm"
                 v-if="!isShow" 
