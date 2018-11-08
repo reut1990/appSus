@@ -24,7 +24,7 @@ export default {
         emailServices.query()
             .then(emails =>{
                 this.emails = emails
-            })   
+            })
     },
     methods: {
         setSelectedEmail(mail) {
