@@ -19,7 +19,7 @@ export default{
               <input v-on:click="inputClicked('text-note')" ref="myInput" type="text" placeholder="type your note..." v-model="noteTxt">
           </form>
           <div class="tooltip" v-on:click="inputClicked('new-list')">
-              <img class="new-list" src="../../img/newList.png" alt="new List">
+              <img class="new-list" src="./img/newList.png" alt="new List">
               <span class="tooltiptext">New List</span>
           </div>
           <div class="tooltip" >
