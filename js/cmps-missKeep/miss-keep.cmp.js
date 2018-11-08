@@ -9,8 +9,9 @@ import notesCreated from '../cmps-missKeep/notes-created.cmp.js';
 
 
 
-Vue.component('miss-keep', {
-    template: `
+export default{
+
+ template: `
     <section class="miss-keep-app">
       <h1>Miss keep</h1>
       <div v-if="isShow" class="container">
@@ -78,4 +79,4 @@ Vue.component('miss-keep', {
         'new-list':newList,
         notesCreated,
     }
-});
+};
