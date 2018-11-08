@@ -31,7 +31,7 @@ export default {
         }
     },
     created() {
-
+        this.getNumOfReadEmails();
     },
     methods: {
         selectedMail(email) {
@@ -48,7 +48,6 @@ export default {
                 this.unreadEmails++;
                 this.readEmails--;
             }
-            this.getNumOfReadEmails();
     },
     getNumOfReadEmails() {
         console.log(this.emails.length, 'email length - in methods');
@@ -56,13 +55,13 @@ export default {
         console.log('emails from in the function', emails)
         var emailCount = emails.reduce(function (acc, email) {
             if (email.isRead) {
-                if (!acc[read]) {
-                    acc[read] = 1
+                if (!acc['read']) {
+                    acc['read'] = 1
                 };
             } else {
-                if (!acc[unread]) {
-                    acc[unread] = 1
-                } else (acc[unread]++);
+                if (!acc['unread']) {
+                    acc['unread'] = 1
+                } else (acc['unread']++);
             }
             return acc;
         }, {})
