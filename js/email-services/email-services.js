@@ -18,6 +18,11 @@ function query() {
     })
 }
 
+function saveEmails(emails){
+    storageService.store(EMAILS_KEY, emails);
+
+}
+
 function _createEmails(numOfEmails) {
     var emails = [];
     for (var i = 0; i < numOfEmails; i++) {
@@ -30,8 +35,9 @@ function _createEmails(numOfEmails) {
 
 function _createEmail() {
     var email = {
+        id: utilServices.makeId(),
         subject: utilServices.makeLorem(20),
-        body: utilServices.makeLorem(1000),
+        body: utilServices.makeLorem(3000),
         isRead: false,
         sentAt: new Date(utilServices.getRandomInt(1472979679000, 1541322079000))
     }
@@ -39,5 +45,6 @@ function _createEmail() {
 }
 
 export const emailServices =  {
-    query
+    query,
+    saveEmails
 }
