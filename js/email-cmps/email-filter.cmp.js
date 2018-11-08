@@ -4,13 +4,15 @@
 export default {
     template: `
         <section class="">
-        <input type="radio" id="one" value="all" v-model="picked">
-        <label for="one">All</label>
+        <label for="all">All</label>
 
-        <input type="radio" id="two" value="read" v-model="picked">
-            <label for="two">Read</label>
-            <input type="radio" id="two" value="unread" v-model="picked">
-            <label for="two">Unread</label>
+        <input type="radio" value="all" v-model="picked">
+        <label for="read">Read</label>
+
+        <input type="radio"  value="read" v-model="picked">
+        <label for="unread">Unread</label>
+
+        <input type="radio" value="unread" v-model="picked">
 
         <span>Picked: {{ picked }}</span>
 
@@ -19,11 +21,11 @@ export default {
         </section>
     `,
 
-    //v-bind:class="isEmailSelected"   took out this line not sure if needed
     data() {
         return {
-         picked:null,
-         userKeyword:null
+         picked:'all',
+         userKeyword:null,
+         filter:'all'
         }
     },
     created() {
@@ -31,12 +33,21 @@ export default {
     
     },
     methods: {
-
+       
+            
+        
     },
     computed: {
-
+        // setFilter(){
+        //     console.log('the filter was set!', this.picked);
+        // }
     },
     components: {
       
+    },
+    watch:{
+        picked(newPick){
+            console.log('the filter was set!', newPick);
+        }
     }
 }

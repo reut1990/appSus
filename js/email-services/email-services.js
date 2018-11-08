@@ -37,7 +37,7 @@ function _createEmail() {
     var email = {
         id: utilServices.makeId(),
         subject: utilServices.makeLorem(20),
-        body: utilServices.makeLorem(1000),
+        body: utilServices.makeLorem(3000),
         isRead: false,
         sentAt: new Date(utilServices.getRandomInt(1472979679000, 1541322079000))
     }
