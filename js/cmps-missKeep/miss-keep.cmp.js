@@ -27,7 +27,11 @@ export default{
               <span class="tooltiptext">New Note with Image Note</span>
           </div>
       </div>
-            <component ref="noteForm" v-if="!isShow"  v-bind:is="component"></component>
+      <img class="pin"   v-if="!isShow" src="../../img/pin-icon.png">
+            <component 
+               ref="noteForm"
+                v-if="!isShow" 
+                v-bind:is="component"></component>
        <div class="buttons"  v-if="!isShow">
         <button type="button" v-on:click="close">Close</button> 
         <button   type="button"  v-on:click="addNote">Add note</button> 
@@ -39,7 +43,7 @@ export default{
         return {
             noteTxt: '',
             isShow: true,
-            component: '',
+            component: null,
             notesCreated:[],
         }
     },
@@ -58,12 +62,14 @@ export default{
         },
         addNote(){
 
-            // console.log('form comp', this.$refs.noteForm)
+            console.log('form comp', this.$refs.noteForm.fromData);
             
             missKeepService.addNote(this.$refs.noteForm.fromData);
             this.notesCreated= missKeepService.getNotes();
-            // console.log(this.notesCreated);
             this.isShow = true;
+            // console.log(this.$refs.noteForm.fromData);
+            // console.log(this.notesCreated);
+
             // if(this.$refs.noteForm.type==='new-img')
         },
       

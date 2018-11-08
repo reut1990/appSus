@@ -17,7 +17,7 @@ function queryMissKeep() {
 
 function addNote(note) {
     notesDB.push(note);
-    console.log(notesDB);
+    // console.log(notesDB);
 }
 
 function getNotes(){

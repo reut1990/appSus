@@ -10,7 +10,6 @@ export default {
     <section>
          <ul class="notes-created">
             <note-preview v-for="note in notes"  v-bind:note="note" > </note-preview> 
-        <!-- v-on:selected="selectNote"-->
         </ul>
     </section>
     `,
@@ -20,7 +19,7 @@ export default {
         }
     },
     created(){
-        console.log(this.notes);
+        // console.log(this.notes);
     },
     methods: {
    

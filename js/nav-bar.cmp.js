@@ -3,7 +3,7 @@ export default {
     template: `
     <section class="nav">
     <div class="logo">
-                <img src="/img/logo2.jpg" alt="">
+                <!-- <img src="/img/logo2.jpg" alt=""> -->
                 <h6>Miss APSUS</h6>
             </div>
             <nav>
