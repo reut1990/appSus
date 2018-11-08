@@ -20,9 +20,14 @@ function addNote(note) {
     console.log(notesDB);
 }
 
+function getNotes(){
+  return notesDB;
+}
+
 
 export const missKeepService = {
     addNote,
-    queryMissKeep
+    queryMissKeep,
+    getNotes,
   
   }
