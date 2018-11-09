@@ -1,17 +1,18 @@
 export default {
     props: [],
     template: `
-    <section class="nav">
-    <div class="logo">
-                <!-- <img src="/img/logo2.jpg" alt=""> -->
-                <h6>Miss APSUS</h6>
-            </div>
-            <nav>
-                    <router-link exact to="/home"><div class="home-nav">Home</div></router-link>
-                    <router-link exact to="/about"><div>About</div></router-link> 
-                    <router-link exact to="/missKeep"><div>Miss Keep</div></router-link> 
-                    <router-link exact to="/mrEmails"><div>Mr Emails</div></router-link> 
+    <section class="top-nav">
+       <div class="inside-container">
+            <div class="top-nav-logo logo" title="" alt="Blogin">Miss APSUS</div>
+            <!-- <div class="screen" v-on:click="toggleMenu"></div> -->
+            <nav class="main-nav-container" id="main-nav">
+                    <router-link exact to="/home"><div  class="main-nav-item first">Home</div></router-link>
+                    <router-link exact to="/about"><div  class="main-nav-item" >About</div></router-link> 
+                    <router-link exact to="/missKeep"><div  class="main-nav-item" >Miss Keep</div></router-link> 
+                    <router-link exact to="/mrEmails"><div class="main-nav-item" >Mr Emails</div></router-link> 
             </nav>
+           <!-- <button class="menu-icon" v-on:click="toggleMenu">☰</button> -->
+        </div>
     </section>
     `,
     data() {

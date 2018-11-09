@@ -8,11 +8,16 @@
 @import './missKeepApp-css/list-note.css';
 @import './missKeepApp-css/notes-created.css';
 
+@import './nav-bar.css';
+@import './pagesCss.css/home-page.css';
 *{
     Box-sizing:border-box;
 }
     
 html,body{
     height: 100vh;
-	margin: 0;
+    margin: 0;
+    background-image: url('../img/technology.jpg');
+    background-size: cover;
 }
+
