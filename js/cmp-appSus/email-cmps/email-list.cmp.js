@@ -5,12 +5,15 @@ export default {
     template: `
         <section class="inbox-container" v-if="emails">
                        
-                   <email-preview 
+                   <email-preview  @isRead="isRead"
+                   
                    v-for="email in emails"
                     :email="email"
+                   
                     @dblclick.native="displayEmail(email)"
                     @click.native="selectedMail(email)"
-                    :class="{selected: selectedEmail === email}"      
+                    :class="{selected: selectedEmail === email}"     
+                   
                     >
                 </email-preview>
         </section>
@@ -29,7 +32,9 @@ export default {
         selectedMail(email) {
             this.selectedEmail = email;
         },
-
+        isRead(email){
+            this.$emit('isEmailRead', email);
+        },
         displayEmail(email){
             this.$emit('email-opened', email);
         },

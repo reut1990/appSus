@@ -6,7 +6,7 @@ const EMAILS_KEY = 'emails';
 const numOfEmails = 30;
 var emailsDB = [];
 
-function query(filter = 'all', keyword=undefined) {
+function query(filter = 'all', keyword) {
 
 
     var emails = storageService.load(EMAILS_KEY);
@@ -20,8 +20,8 @@ function query(filter = 'all', keyword=undefined) {
         var currKeyword = keyword.toLowerCase();
         filteredEmails = filterByKeyword(filteredEmails, currKeyword)
     }
-    return Promise.resolve(filteredEmails);
 
+    return Promise.resolve(filteredEmails);
 }
 
 function saveEmails(emails) {
@@ -46,6 +46,20 @@ function filterEmails(emails, emailFilter) {
     });
     return filteredEmails;
 }
+
+function updateEmailStatus(email, isEmailRead){
+    var emailID = email.id;
+   
+    var emails = storageService.load(EMAILS_KEY);
+    var email = emails.find(function(currEmail) {
+        return currEmail.id === emailID;
+    })
+    email.isRead = isEmailRead;
+    console.log(email, 'services')
+    storageService.store(EMAILS_KEY, emails);
+    // console.log('service', emails, email)
+    // return Promise.resolve(emails);
+}
 function _createEmails(numOfEmails) {
     var emails = [];
     for (var i = 0; i < numOfEmails; i++) {
@@ -69,6 +83,5 @@ function _createEmail() {
 export const emailServices = {
     query,
     saveEmails,
-    filterEmails,
-    utilService,
+    updateEmailStatus,
 }

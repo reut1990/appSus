@@ -42,10 +42,16 @@ section.inbox-container > section.email > button{
     padding: 30px;
 }
 
-.selected{
-    background-color: lightblue;
-}
+
 
 .openedEmail{
     background-color: hotpink;
+}
+
+.isRead{
+    background-color: green;
+}
+
+.selected{
+    background-color: lightblue;
 }

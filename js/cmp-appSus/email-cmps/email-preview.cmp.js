@@ -1,13 +1,19 @@
+import emailList from './email-list.cmp.js'
+
 export default {
     props: ['email'],
     template: `
-            <section class="email">
-               <span class="email-subject">Subject: {{email.subject}}</span>
+            <section class="email" v-bind:class="{isRead: email.isRead}"
+ >
+
+               <span class="email-subject ">Subject: {{email.subject}}</span>
                <span class="email-body">Body:{{emailText}}</span> <span class="email-timestamp">{{email.sentAt}}</span>
                <button v-on:click="toggleReadStatus" >{{email.isRead}}</button>
-</section>
+
+            </section>
     `,
             // <router-link tag="section" :to="'/email/' + email.id" class="email">
+
     //   </router-link>
 
     data() {
@@ -21,8 +27,9 @@ export default {
     },
     methods: {
         toggleReadStatus() {
-            this.email.isRead = !this.email.isRead;    
-            console.log('this email was read',  this.email.isRead)        
+            console.log('toggleReadStatus', this.email)
+            this.$emit('isRead', this.email );
+            
         }
        
     },
@@ -33,7 +40,9 @@ export default {
         },
 
     },
-    components: {
+    watch:{
 
+    },
+    components: {
     }
 }
