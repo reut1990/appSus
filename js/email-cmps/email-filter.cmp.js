@@ -4,15 +4,14 @@
 export default {
     template: `
         <section class="">
-        <label for="all">All</label>
 
         <input type="radio" value="all" v-model="filter">
+        <label for="all">All</label>
+        <input type="radio"  value="read" v-model="filter">
         <label for="read">Read</label>
 
-        <input type="radio"  value="read" v-model="filter">
-        <label for="unread">Unread</label>
-
         <input type="radio" value="unread" v-model="filter">
+        <label for="unread">Unread</label>
 
         <span>filter: {{ filter }}</span>
 
@@ -46,8 +45,7 @@ export default {
     },
     watch:{
         filter(newFilter){
-            console.log('the filter was set!', newFilter);
-
+            this.$emit('filterEmails', newFilter);
         }
     }
 }

@@ -1,12 +1,15 @@
 export default {
     props: ['email'],
     template: `
-        <router-link tag="section" :to="'/email/' + email.id" class="email">
+            <section class="email">
                <span class="email-subject">Subject: {{email.subject}}</span>
                <span class="email-body">Body:{{emailText}}</span> <span class="email-timestamp">{{email.sentAt}}</span>
-                <button v-on:click="toggleReadStatus" >{{email.isRead}}</button>
-            </router-link>
+               <button v-on:click="toggleReadStatus" >{{email.isRead}}</button>
+</section>
     `,
+            // <router-link tag="section" :to="'/email/' + email.id" class="email">
+    //   </router-link>
+
     data() {
         return {
             emailSelected: null,

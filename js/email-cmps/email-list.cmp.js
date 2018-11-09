@@ -6,18 +6,20 @@ export default {
         <section class="inbox-container" v-if="emails">
                        
                    <email-preview 
-                    v-for="email in emails"
+                   v-for="email in emails"
                     :email="email"
                     @dblclick.native="displayEmail(email)"
                     @click.native="selectedMail(email)"
-                    :class="{selected: selectedEmail === email}">
+                    :class="{selected: selectedEmail === email}"      
+                    >
                 </email-preview>
         </section>
     `,
+
+
     data() {
         return {
             selectedEmail: this.emails[0],
-            openedEmail: null,
         }
     },
     created() {
@@ -26,7 +28,6 @@ export default {
     methods: {
         selectedMail(email) {
             this.selectedEmail = email;
-
         },
 
         displayEmail(email){

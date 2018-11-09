@@ -18,11 +18,19 @@ function query() {
     })
 }
 
-function saveEmails(emails){
+function saveEmails(emails) {
     storageService.store(EMAILS_KEY, emails);
 
 }
 
+function filterEmails(emailFilter, emails) {
+    var filteredEmails = emails.filter(function (email) {
+        return emailFilter === 'all' ||
+            (emailFilter === 'read' && email.isRead) ||
+            (emailFilter === 'unread' && !email.isRead)
+    });
+    return Promise.resolve(filteredEmails)
+}
 function _createEmails(numOfEmails) {
     var emails = [];
     for (var i = 0; i < numOfEmails; i++) {
@@ -44,7 +52,8 @@ function _createEmail() {
     return email;
 }
 
-export const emailServices =  {
+export const emailServices = {
     query,
-    saveEmails
+    saveEmails,
+    filterEmails
 }

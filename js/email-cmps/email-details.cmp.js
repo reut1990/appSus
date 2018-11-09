@@ -1,7 +1,7 @@
 export default {
     props: ['email'],
     template: `
-        <section v-if="email" class="email">
+        <section v-if="email" class="email openedEmail">
             <button class="close-btn" v-on:click="closeEmail">Close email</button>
              <div>EMAIL DETAILS</div>
              <div>{{email.subject}}</div>

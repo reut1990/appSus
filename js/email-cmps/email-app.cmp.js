@@ -1,7 +1,7 @@
 import emailList from './email-list.cmp.js'
 import emailPreview from './email-preview.cmp.js'
 import { emailServices } from '../email-services/email-services.js'
-import emailDetails from  './email-details.cmp.js'
+import emailDetails from './email-details.cmp.js'
 import emailFilter from './email-filter.cmp.js'
 import emailCount from './email-count.cmp.js'
 import emailCompose from './email-compose.cmp.js'
@@ -10,15 +10,16 @@ import emailCompose from './email-compose.cmp.js'
 export default {
     template: `
         <section class="emailApp" >
-        <email-filter></email-filter>
+        <email-filter @filterEmails="filterEmails"></email-filter>
         <email-count :emails="emails"></email-count>
         <button class="compose-email-btn" v-on:click="onComposeEmail">Compose New Email</button>
 
             <!-- <router-view :emails="emails" :email="selectedEmail"
                 @email-open="openEmail"></router-view> -->
-            <email-details v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
-            <email-list v-else-if="emails.length > 0 && !composeEmail" @email-opened="setOpenedEmail" :emails="emails"></email-list>   
-            <email-compose v-if="composeEmail" @email-opened="setOpenedEmail"></email-compose>   
+                <email-details v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
+                <email-list v-else-if="emails.length > 0 && !composeEmail" @email-opened="setOpenedEmail" :emails="emails"></email-list>   
+                <email-compose v-if="composeEmail"  ></email-compose>  
+            
         <!-- TODO: CHANGE TO ROUNTER IF THERE IS TIME -->
         </section>
     `,
@@ -26,19 +27,14 @@ export default {
     data() {
         return {
             emails: [],
-            selectedEmail:null,
+            selectedEmail: null,
             emailId: null,
-            composeEmail:false
+            composeEmail: false,
         }
     },
     created() {
-        // this.emailId = this.$route.params.emailId;
-
-        // console.log('email id', this.emailId)
-
         var prmGetEmails = emailServices.query();
         prmGetEmails.then(emails => {
-            console.log('got emails', emails)
             this.emails = emails
         })
     },
@@ -51,13 +47,24 @@ export default {
             // this.$router.push(`/email/${email.id}`)
 
         },
-        resetEmailIdtoNull(){
-            this.selectedEmail=null;
+        resetEmailIdtoNull() {
+            this.selectedEmail = null;
             this.emailId = null;
         },
-        onComposeEmail(){
-            this.composeEmail=true;
-        }
+        onComposeEmail() {
+            this.composeEmail = true;
+        },
+        setEmailFilter(filter) {
+            console.log('email app parent', filter);
+        },
+        filterEmails(filter) {
+            console.log(filter, ' the filter', typeof filter)            
+            var prmFilterEmails = emailServices.filterEmails(filter, this.emails);
+            prmFilterEmails.then(emails => this.emails = emails);
+            console.log(this.emails)
+        },
+
+
     },
     computed: {
 
