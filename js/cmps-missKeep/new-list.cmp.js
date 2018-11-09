@@ -9,16 +9,15 @@ import { utilService } from '../services-missKeep/utils.js'
 export default {
     props: ['note', 'isDisabled'],
     template: `
-    <section class="new-list-note">
-              	
-	   <div class="toDo-container" id="todo" v-bind:style="style">
+    <section class="new-list-note"  v-bind:style="style">
+	   <div class="toDo-container" id="todo">
             <section class="input-task-container">	
 				<button :disabled="isDisabled" id="mark-all" @click="selectAll" :checked="areAllSelected">select All</button>
-				<input :disabled="isDisabled"  v-model="newTask" @keyup.enter="addTask" placeholder="Type your task..." autofocus class="text-input">
+				<input :disabled="isDisabled"   v-model="newTask" @keyup.enter="addTask" placeholder="Type your task..." autofocus class="text-input">
 				<button :disabled="isDisabled"  @click="clearList">Clear List</button>
             </section> 
             <input  :disabled="isDisabled" type="color" id="html5colorpicker"  v-on:change="changeBackground" value="#ff0000" >
-            <input  :disabled="isDisabled" class="title-list" v-bind:style="style" type="text" placeholder="Title..." v-model="title"/>
+            <input  :disabled="isDisabled" class="title-list"  type="text" placeholder="Title..." v-model="title"/>
             <section class="list"  >
 				<ul class="list-item">
 					<li v-for="task in tasks" :class="{done: isChecked(task)}">
@@ -38,12 +37,13 @@ export default {
         if (this.note) {
             this.title = this.note.title;
             this.tasks = this.note.tasks;
-            this.style = this.note.style;
+            this.style = this.style['background-color'];
         }
     },
     data() {
         return {
             newTask: null,
+            id: utilService.makeId(),
             title: '',
             tasks: [],
             editingTask: {},
@@ -104,24 +104,24 @@ export default {
                 return task.checked;
             }) && this.tasks.length > 0;
         },
-    },
-
         fromData() {
             return {
                 type: 'new-list',
-                id: utilService.makeId(),
+                id: this.id,
                 title: this.title,
                 tasks: this.tasks,
                 style: this.style
-
+    
             }
+    
         },
-        components: {
+    },
+    components: {
 
-            missKeepService,
-            utilService
-        },
-    }
+        missKeepService,
+        utilService
+    },
+}
 
 
 

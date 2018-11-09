@@ -6,16 +6,16 @@ import newList from '../cmps-missKeep/new-list.cmp.js';
 
 export default {
     props: ['note'],
-    template: `
-      <li>
-         <keep-alive>
+   template: `
+      <li class="note-item">
+      <img class="pin"  src="../../img/pin-icon.png">
             <component 
                 :is="component"
                 :isDisabled="isDisabled" 
                 v-bind:note="note"
-                @dblclick.native="handleDblClick"   
+                @dblclick.native="handleDblClick" 
+                :style="note.style"  
             ></component>
-         </keep-alive>
       </li>
 
   `,
@@ -37,7 +37,7 @@ export default {
         }
     },
     created() {
-        this.showNotes(this.note.type)
+        if(this.note) this.showNotes(this.note.type)
     },
     computed: {
 

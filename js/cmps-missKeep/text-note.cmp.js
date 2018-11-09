@@ -7,17 +7,16 @@ import { utilService } from '../services-missKeep/utils.js'
 export default {
     props: ['note', 'isDisabled'],
     template: ` 
-    <section class="text-note">
+    <section class="text-note" v-bind:style="style">
         <form class="input-form">
             <div  class="input-form-header">
-               <input v-bind:style="style"
+               <input
                 :disabled="isDisabled"               
                type="text"  v-on:input="$emit('input-title', $event.target.value)" placeholder="Title..." v-model="title"/>
-               <img src="../../img/pin-icon.png">
             </div>
            <textarea 
            :disabled="isDisabled"
-           v-bind:style="style" id="txt-box"    v-on:input="$emit('input-txt', $event.target.value)" placeholder=" Note Text..." v-model="txt"></textarea>
+            id="txt-box"    v-on:input="$emit('input-txt', $event.target.value)" placeholder=" Note Text..." v-model="txt"></textarea>
         </form>
         <div  class="edit-text-note">
             <input
@@ -28,6 +27,7 @@ export default {
     `,
     data() {
         return {
+            id:utilService.makeId(),
             title: '',
             txt: '',
             style: {
@@ -40,7 +40,7 @@ export default {
         if (this.note) {
             this.title = this.note.title;
             this.txt = this.note.txt;
-            this.style=this.style;
+            this.style=this.style['background-color'];
         }
         
     },
@@ -60,7 +60,7 @@ export default {
         fromData() {
             return {
                 type: 'text-note',
-                id: utilService.makeId(),
+                id: this.id,
                 title: this.title,
                 txt: this.txt,
                 style:this.style,

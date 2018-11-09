@@ -9,9 +9,9 @@ import textNote from './text-note.cmp.js';
 export default {
     props: ['note', 'isDisabled'],
     template: `
-    <section class="new-imgList">
+    <section class="new-img-list">
     <div class="upload-img-container">
-         <div class="img-container" v-bind:style="style"></div>
+         <div class="img-container" :style="style"></div>
          <form class="input-src" @submit.prevent="updateImgSrc">
               <input :disabled="isDisabled"  placeholder="Insert img url" v-model="imgUrl">
               <button type="sumbit" >Upload Pic</button>
@@ -42,6 +42,8 @@ export default {
 
         },
         updateImgSrc(){
+            console.log(this.imgUrl);// pay attention both bind to style 
+            // need to add background color and img in style data
             this.style = {'background-image': `url('${this.imgUrl}')`}
         },
         updateTitle(title){

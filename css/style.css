@@ -92,6 +92,12 @@ html,body{
     opacity: 1;
 }
 
+.pin{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 0 48%;
+}
 
 /***************************** text note*****************************888*/
 
@@ -104,6 +110,7 @@ html,body{
     width: 70%;
     padding: 10px;
     margin: auto;
+    transition: .4s;
 }
 
 #txt-box{
@@ -113,6 +120,7 @@ html,body{
         padding: 5px;
         overflow: hidden;
         box-sizing: border-box;
+        background-color: inherit;
     
 }
 
@@ -125,12 +133,10 @@ html,body{
 .input-form-header input{
     height: 30px;
     width: 80%;
+    background-color: inherit;
+
 }
-.input-form-header img{
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-}
+
 
 .edit-text-note{
     display: flex;
@@ -140,6 +146,9 @@ html,body{
 }
 /*****************new image note ******************8 */
 
+/* .new-img-list{
+background-color: inherit;
+} */
 .upload-img-container{
     display: flex;
     flex-direction: column;
@@ -147,14 +156,14 @@ html,body{
 }
 
 .img-container{
+    background-size: cover;
     height: 200px;
     width: 200px;
     border: 2px solid lightblue;
+    background-position: center center;
 }
 
-.img-container p{
-text-align: center;
-}
+
 
 .input-src{
     display: flex;
@@ -177,31 +186,32 @@ text-align: center;
 	list-style-type: none;
 	padding: 10px;
 	border-bottom: 1px solid #efefef;
-	/* background-color: #E7E8EB; */
+	/* background-color:7E8EB; */
 }
 
 .title-list{
     width: 90%;
     height: 20px;
+    background-color: inherit;
 }
 /* Task  area */
 
 .list li {
-	background-color: #E91E63;
+	background-color: aliceblue;
 }
 
 .list li button {
 	background-color: transparent;
 	border: 1px solid #E91E63;
 	color: #ddd;
-	visibility: hidden;
 	font-size: 20px;
 	font-weight: bold;
 }
-
-.list li:hover > button {
-	visibility: visible;
+.text-input{
+    background-color: inherit;
 }
+
+
 
 .list label {
 	padding-right: 10px;
@@ -209,9 +219,9 @@ text-align: center;
 	width: 70%;
 	font-size: 18px;
 	line-height: 24px;
-	color: #fcfcfc;
 	z-index: 2;
-	overflow: hidden;
+    overflow: hidden;
+    background-color: aliceblue;
 }
 
 .list li.done label {
@@ -225,11 +235,17 @@ text-align: center;
     justify-content: center;
 }
 
-/**************** notes created presented in a list***********************88 */
+/**************** notes created presented in a list************************/
 .notes-created{
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+}
+
+.note-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 

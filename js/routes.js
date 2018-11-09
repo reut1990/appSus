@@ -1,5 +1,7 @@
 
 
+// import emailList from './email-cmps/email-list.cmp.js'
+// import emailDetails from './email-cmps/email-details.cmp.js';
 // import homePage from './pages/home-page.cmp.js';
 import missKeep from '../js/cmps-missKeep/miss-keep.cmp.js';
 import emailApp from '../js/email-cmps/email-app.cmp.js';
@@ -12,11 +14,20 @@ var myRoutes = [
     // {path: '/about', component: aboutPage },
     {path: '/missKeep', component: missKeep },
     {path:'/mrEmails', component:emailApp},
+     {path: '/email/:emailId', component: emailApp},
+   // children: [
+        //     { path: '', component: emailList },
+        //     { path: ':emailId', component: emailDetails }
+        // ]
 
 
+<<<<<<< HEAD
 
 
 ]
+=======
+];
+>>>>>>> e37f51fe6ad0076fe945d452f261abbe09650438
 
 export default myRoutes;
 
