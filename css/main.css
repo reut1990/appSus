@@ -1,7 +1,12 @@
 /* @import "tablet.css"  screen and (min-width : 420px);
 @import "desktop.css"  screen and (min-width : 1024px); */
 @import './emailsApp-css/main-email.css';
+
 @import './missKeepApp-css/main-page.css';
+@import './missKeepApp-css/text-note.css';
+@import './missKeepApp-css/img-note.css';
+@import './missKeepApp-css/list-note.css';
+@import './missKeepApp-css/notes-created.css';
 
 *{
     Box-sizing:border-box;
