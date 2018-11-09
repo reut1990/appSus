@@ -30,7 +30,8 @@ export default {
             selectedEmail: null,
             emailId: null,
             composeEmail: false,
-            filter:'all'
+            filter:'all',
+            keyword:''
         }
     },
     created() {
@@ -62,7 +63,8 @@ export default {
             prmFilterEmails.then(emails => this.emails = emails);
         },
         filterbyKeyword(keyword){
-            var prmFilterEmailsbyKeyword = emailServices.query(this.filter,keyword);
+            this.keyword = keyword;
+            var prmFilterEmailsbyKeyword = emailServices.query(this.filter , keyword);
             prmFilterEmailsbyKeyword.then(emails => this.emails = emails);
 
         }

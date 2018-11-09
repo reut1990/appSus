@@ -6,7 +6,7 @@ const EMAILS_KEY = 'emails';
 const numOfEmails = 30;
 var emailsDB = [];
 
-function query(filter = 'all', keyword) {
+function query(filter = 'all', keyword=undefined) {
 
 
     var emails = storageService.load(EMAILS_KEY);
