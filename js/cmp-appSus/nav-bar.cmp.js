@@ -3,7 +3,7 @@ export default {
     template: `
     <section class="top-nav">
        <div class="inside-container">
-            <div class="top-nav-logo logo" title="" alt="Blogin">Miss APSUS</div>
+            <div class="top-nav-logo logo" title="" alt="Blogin">Miss APPSUS</div>
             <!-- <div class="screen" v-on:click="toggleMenu"></div> -->
             <nav class="main-nav-container" id="main-nav">
                     <router-link exact to="/home"><div  class="main-nav-item first">Home</div></router-link>

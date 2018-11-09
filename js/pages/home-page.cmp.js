@@ -6,11 +6,11 @@ export default {
         <div class="products">
                   <div>
                    <h6>MissKeep </h6>
-                   <img src="../../img/notes.png">
+                   <img src="./img/notes.png">
                 </div>
                 <div>
                    <h6>MrEmail </h6>
-                   <img src="../../img/emails.png">
+                   <img src="./img/emails.png">
                 </div>
         </div>
     </section>

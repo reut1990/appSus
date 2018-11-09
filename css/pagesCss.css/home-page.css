@@ -23,7 +23,7 @@
     margin: 10px;
 }
 .home h1,h4{
-    color: lightgreen;
+    color: darkblue;
     letter-spacing:10px;
     text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
 }
@@ -37,6 +37,7 @@
   height: 200px;
   width: 250px;
   border-radius: 25px;
+  margin-top: 5px;
   box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
 
 
@@ -47,5 +48,5 @@
     align-items: center;
     margin: 5px;
     text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
-    color: rgb(111, 206, 108);
+    color: darkblue;
 }
