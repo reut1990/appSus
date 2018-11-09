@@ -1,9 +1,9 @@
 
-import eventBus, { CLOSE_COMPONENT } from '../event-bus.js'
-import { missKeepService } from '../services-missKeep/service-missKeep.js';
-import { utilService } from '../services-missKeep/utils.js'
+import eventBus, { CLOSE_COMPONENT } from '../../event-bus.js'
+import { missKeepService } from '../../services-appSus/services-missKeep/service-missKeep.js'
+import { utilService } from '../../utils.js'
 
-import textNote from './text-note.cmp.js';
+import textNote from './text-note.cmp.js'
 
 
 export default {

@@ -1,6 +1,6 @@
 import emailList from './email-list.cmp.js'
 import emailPreview from './email-preview.cmp.js'
-import { emailServices } from '../email-services/email-services.js'
+import { emailServices } from '../../services-appSus/email-services/email-services.js'
 import emailDetails from './email-details.cmp.js'
 import emailFilter from './email-filter.cmp.js'
 import emailCount from './email-count.cmp.js'

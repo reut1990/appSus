@@ -1,0 +1,13 @@
+/* @import "tablet.css"  screen and (min-width : 420px);
+@import "desktop.css"  screen and (min-width : 1024px); */
+@import './emailsApp-css/main-email.css';
+@import './missKeepApp-css/main-page.css';
+
+*{
+    Box-sizing:border-box;
+}
+    
+html,body{
+    height: 100vh;
+	margin: 0;
+}
