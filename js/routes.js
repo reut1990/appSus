@@ -21,13 +21,7 @@ var myRoutes = [
         // ]
 
 
-<<<<<<< HEAD
-
-
-]
-=======
 ];
->>>>>>> e37f51fe6ad0076fe945d452f261abbe09650438
 
 export default myRoutes;
 

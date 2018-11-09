@@ -7,6 +7,8 @@ const numOfEmails = 30;
 var emailsDB = [];
 
 function query(filter = 'all') {
+    
+
     var emails = storageService.load(EMAILS_KEY);
     if (!emails) {
         emails = _createEmails(numOfEmails);
@@ -14,7 +16,6 @@ function query(filter = 'all') {
     }
     // emailsDB = emails;
     var filteredEmails = filterEmails(emails, filter);
-        
     return Promise.resolve(filteredEmails);
     // new Promise((res) => {
     //     res(emails)
@@ -39,7 +40,6 @@ function _createEmails(numOfEmails) {
         var email = _createEmail();
         emails.push(email);
     }
-    console.log(emails);
     return emails;
 }
 

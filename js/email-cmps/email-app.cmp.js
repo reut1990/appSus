@@ -36,6 +36,7 @@ export default {
         var prmGetEmails = emailServices.query();
         prmGetEmails.then(emails => {
             this.emails = emails
+            console.log('created', this.emails)
         })
     },
     methods: {
@@ -58,10 +59,9 @@ export default {
         //     console.log('email app parent', filter);
         // },
         filterEmails(filter) {
-            console.log(filter, ' the filter', typeof filter)            
+            console.log(filter, ' the filter')            
             var prmFilterEmails = emailServices.query(filter);
             prmFilterEmails.then(emails => this.emails = emails);
-            console.log(this.emails)
         },
 
 

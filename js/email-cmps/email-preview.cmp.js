@@ -21,7 +21,8 @@ export default {
     },
     methods: {
         toggleReadStatus() {
-            this.email.isRead = !this.email.isRead;            
+            this.email.isRead = !this.email.isRead;    
+            console.log('this email was read',  this.email.isRead)        
         }
        
     },

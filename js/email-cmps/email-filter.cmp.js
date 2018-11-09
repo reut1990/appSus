@@ -36,9 +36,7 @@ export default {
         
     },
     computed: {
-        // setFilter(){
-        //     console.log('the filter was set!', this.filter);
-        // }
+
     },
     components: {
       
