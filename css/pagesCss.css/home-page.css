@@ -8,7 +8,6 @@
 
 .home h1{
     font-size: 60px;
-    margin: 10px;
     letter-spacing: 3px;
 
 }
@@ -16,6 +15,7 @@
 .home h4{
     font-size: 40px;
     margin: 5px;
+    text-align: center;
 }
 
 .home h6{
@@ -34,8 +34,8 @@
     margin-top: 15px;
 }
 .products img{
-  height: 200px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
   border-radius: 25px;
   margin-top: 5px;
   box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
@@ -49,4 +49,22 @@
     margin: 5px;
     text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
     color: darkblue;
+}
+
+@media(min-width:420px){/* tablet  */
+  
+    .home h1{
+        margin: 10px;
+    }
+
+    .products img{
+        height: 200px;
+        width: 200px;
+    }
+ 
+}
+  
+  @media(min-width:1024px){/* desktop */
+ 
+
 }
