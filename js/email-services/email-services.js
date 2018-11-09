@@ -6,16 +6,18 @@ const EMAILS_KEY = 'emails';
 const numOfEmails = 30;
 var emailsDB = [];
 
-function query() {
+function query(filter = 'all') {
     var emails = storageService.load(EMAILS_KEY);
     if (!emails) {
         emails = _createEmails(numOfEmails);
         storageService.store(EMAILS_KEY, emails)
     }
-    emailsDB = emails;
-    return new Promise((res) => {
-        res(emails)
-    })
+    // emailsDB = emails;
+    var filteredEmails = filterEmails(emails, filter);
+        
+    return Promise.resolve(filteredEmails);
+    // new Promise((res) => {
+    //     res(emails)
 }
 
 function saveEmails(emails) {
@@ -23,13 +25,13 @@ function saveEmails(emails) {
 
 }
 
-function filterEmails(emailFilter, emails) {
+function filterEmails(emails, emailFilter) {
     var filteredEmails = emails.filter(function (email) {
         return emailFilter === 'all' ||
             (emailFilter === 'read' && email.isRead) ||
             (emailFilter === 'unread' && !email.isRead)
     });
-    return Promise.resolve(filteredEmails)
+    return filteredEmails;
 }
 function _createEmails(numOfEmails) {
     var emails = [];

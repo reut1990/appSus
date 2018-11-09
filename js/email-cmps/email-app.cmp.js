@@ -54,12 +54,12 @@ export default {
         onComposeEmail() {
             this.composeEmail = true;
         },
-        setEmailFilter(filter) {
-            console.log('email app parent', filter);
-        },
+        // setEmailFilter(filter) {
+        //     console.log('email app parent', filter);
+        // },
         filterEmails(filter) {
             console.log(filter, ' the filter', typeof filter)            
-            var prmFilterEmails = emailServices.filterEmails(filter, this.emails);
+            var prmFilterEmails = emailServices.query(filter);
             prmFilterEmails.then(emails => this.emails = emails);
             console.log(this.emails)
         },
