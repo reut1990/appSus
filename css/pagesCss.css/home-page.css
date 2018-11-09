@@ -51,7 +51,7 @@
     color: darkblue;
 }
 
-@media(min-width:420px){/* tablet  */
+@media(min-width:700px){/* tablet  */
   
     .home h1{
         margin: 10px;
