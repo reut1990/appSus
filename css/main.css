@@ -10,6 +10,8 @@
 
 @import './nav-bar.css';
 @import './pagesCss.css/home-page.css';
+@import './pagesCss.css/about-page.css';
+
 *{
     Box-sizing:border-box;
 }

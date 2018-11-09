@@ -83,7 +83,7 @@ background-color:lightblue;
   @media(min-width:700px){/* tablet  */
   
     .top-nav{
-        margin-bottom: 84px;
+        margin-bottom: 30px;
     }
 
     .main-nav-container{
