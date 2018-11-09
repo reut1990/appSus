@@ -27,6 +27,15 @@
     cursor: pointer;
 }
 
+section.inbox-container > section.email{
+    width: 800px;
+    text-align: left;
+}
+
+section.inbox-container > section.email > button{
+    float: right;
+}
+
 .email-count{
     background-color: lightblue;
     outline:1px solid black;

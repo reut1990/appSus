@@ -6,8 +6,8 @@ const EMAILS_KEY = 'emails';
 const numOfEmails = 30;
 var emailsDB = [];
 
-function query(filter = 'all') {
-    
+function query(filter = 'all', keyword) {
+
 
     var emails = storageService.load(EMAILS_KEY);
     if (!emails) {
@@ -16,16 +16,28 @@ function query(filter = 'all') {
     }
     // emailsDB = emails;
     var filteredEmails = filterEmails(emails, filter);
+    if (keyword) {
+        var currKeyword = keyword.toLowerCase();
+        filteredEmails = filterByKeyword(filteredEmails, currKeyword)
+    }
     return Promise.resolve(filteredEmails);
-    // new Promise((res) => {
-    //     res(emails)
+
 }
 
 function saveEmails(emails) {
     storageService.store(EMAILS_KEY, emails);
-
 }
 
+function filterByKeyword(emails, keyword) {
+    console.log('the filter by function is working', keyword);
+
+    var filteredEmails = emails.filter(email =>{
+       var subject = email.subject.toLowerCase();
+       var body = email.body.toLowerCase();
+        return subject.includes(keyword) || body.includes(keyword);
+    })
+    return filteredEmails;
+} 
 function filterEmails(emails, emailFilter) {
     var filteredEmails = emails.filter(function (email) {
         return emailFilter === 'all' ||

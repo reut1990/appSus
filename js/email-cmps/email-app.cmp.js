@@ -10,7 +10,7 @@ import emailCompose from './email-compose.cmp.js'
 export default {
     template: `
         <section class="emailApp" >
-        <email-filter @filterEmails="filterEmails"></email-filter>
+        <email-filter @filterEmails="filterEmails" @filterbyKeyword="filterbyKeyword"></email-filter>
         <email-count :emails="emails"></email-count>
         <button class="compose-email-btn" v-on:click="onComposeEmail">Compose New Email</button>
 
@@ -30,13 +30,13 @@ export default {
             selectedEmail: null,
             emailId: null,
             composeEmail: false,
+            filter:'all'
         }
     },
     created() {
         var prmGetEmails = emailServices.query();
         prmGetEmails.then(emails => {
             this.emails = emails
-            console.log('created', this.emails)
         })
     },
     methods: {
@@ -55,14 +55,17 @@ export default {
         onComposeEmail() {
             this.composeEmail = true;
         },
-        // setEmailFilter(filter) {
-        //     console.log('email app parent', filter);
-        // },
+
         filterEmails(filter) {
-            console.log(filter, ' the filter')            
+            this.filter = filter;
             var prmFilterEmails = emailServices.query(filter);
             prmFilterEmails.then(emails => this.emails = emails);
         },
+        filterbyKeyword(keyword){
+            var prmFilterEmailsbyKeyword = emailServices.query(this.filter,keyword);
+            prmFilterEmailsbyKeyword.then(emails => this.emails = emails);
+
+        }
 
 
     },

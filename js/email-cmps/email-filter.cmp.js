@@ -44,6 +44,9 @@ export default {
     watch:{
         filter(newFilter){
             this.$emit('filterEmails', newFilter);
+        },
+        userKeyword(newUserKeywod){
+            this.$emit('filterbyKeyword', newUserKeywod);
         }
     }
 }
