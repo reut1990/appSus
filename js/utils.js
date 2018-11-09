@@ -1,10 +1,4 @@
-'use strict'
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
 
 function makeId(length=5) {
     var text = '';
@@ -15,6 +9,16 @@ function makeId(length=5) {
 
     return text;
 }
+
+function getFromStorage(key) {
+    var val = localStorage.getItem(key);
+    return JSON.parse(val)
+}
+
+function saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
+}
+
 
 function makeLorem(length) {
 
@@ -33,7 +37,11 @@ function makeLorem(length) {
     return randStr;
 }
 
-
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 
 function getRandChar() {
     var LETTERS = 'abcdefghijklmnopqrstuvwxyz';
@@ -51,8 +59,23 @@ function createWord(length) {
     return word;
 }
 
-export default{
-    getRandomInt,
+export const utilService = {
+    makeId,
+    saveToStorage,
+    getFromStorage,
     makeLorem,
-    makeId
+    getRandomInt,
+    getRandChar,
+    createWord,
 }
+
+
+
+
+
+
+
+
+
+
+

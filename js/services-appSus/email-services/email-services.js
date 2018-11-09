@@ -1,6 +1,6 @@
 'use strict'
-import utilServices from './util-services.js'
-import { storageService } from './storage.service.js'
+import {utilService} from '../../utils.js'
+import { storageService } from '../email-services/storage.service.js'
 
 const EMAILS_KEY = 'emails';
 const numOfEmails = 30;
@@ -57,11 +57,11 @@ function _createEmails(numOfEmails) {
 
 function _createEmail() {
     var email = {
-        id: utilServices.makeId(),
-        subject: utilServices.makeLorem(20),
-        body: utilServices.makeLorem(3000),
+        id: utilService.makeId(),
+        subject: utilService.makeLorem(20),
+        body: utilService.makeLorem(3000),
         isRead: false,
-        sentAt: new Date(utilServices.getRandomInt(1472979679000, 1541322079000))
+        sentAt: new Date(utilService.getRandomInt(1472979679000, 1541322079000))
     }
     return email;
 }
@@ -69,5 +69,6 @@ function _createEmail() {
 export const emailServices = {
     query,
     saveEmails,
-    filterEmails
+    filterEmails,
+    utilService,
 }

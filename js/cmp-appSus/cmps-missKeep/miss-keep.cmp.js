@@ -1,9 +1,9 @@
 
-import eventBus, { CLOSE_COMPONENT } from '../event-bus.js'
+import eventBus, { CLOSE_COMPONENT } from '../../event-bus.js';
 import textNote from '../cmps-missKeep/text-note.cmp.js';
 import newImg from '../cmps-missKeep/new-img.cmp.js';
 import newList from '../cmps-missKeep/new-list.cmp.js';
-import { missKeepService } from '../services-missKeep/service-missKeep.js';
+import { missKeepService } from '../../services-appSus/services-missKeep/service-missKeep.js';
 import notesCreated from '../cmps-missKeep/notes-created.cmp.js';
 
 

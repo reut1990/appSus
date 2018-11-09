@@ -2,7 +2,7 @@
 
 .emailApp{
     height: 100vh;
-    background-image: url('../img/desk.jpg');
+    background-image: url('../../img/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover; 
     text-align: center;
