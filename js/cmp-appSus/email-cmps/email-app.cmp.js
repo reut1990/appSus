@@ -11,14 +11,14 @@ import emailCompose from './email-compose.cmp.js'
 export default {
     template: `
         <section class="emailApp" >
-        <email-filter @filterEmails="filterEmails" @filterbyKeyword="filterbyKeyword"></email-filter>
+        <email-filter @filterEmails="filterEmails" @filterbyKeyword="filterbyKeyword" @sortByDate="sortByDate"></email-filter>
         <email-count :emailCount="emailCount" :totalNumOfEmails="totalNumOfEmails"></email-count>
         <button class="compose-email-btn" v-on:click="onComposeEmail">Compose New Email</button>
 
             <!-- <router-view :emails="emails" :email="selectedEmail"
                 @email-open="openEmail"></router-view> -->
                 <section class="email-wrapper">
-                <email-details v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
+                <email-details @deleteEmail="deleteEmail" v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
                 <email-list v-else-if="displayedEmails.length > 0 && !composeEmail" @isEmailRead="isRead" @isRead="setOpenedEmail(email)" @deleteEmail="deleteEmail" @email-opened="setOpenedEmail" :emails="displayedEmails"></email-list>   
                 <email-compose v-if="composeEmail"  @closeComposeEmail="closeComposeEmail"></email-compose>  
                 </section>
@@ -88,10 +88,17 @@ export default {
             console.log(this.emailCount, this.totalNumOfEmails)
         },
         deleteEmail(email){
-            console.log('app', email)
+            if(this.emailId){
+                this.emailId=null;
+            }
             emailServices.deleteEmail(email);
             var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
             prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
+        },
+        sortByDate(){
+         emailServices.sortByDate();
+         var prmSortedEmails = emailServices.query(this.filter, this.keyword);
+         prmSortedEmails.then(emails => this.displayedEmails = emails);                                       
         }
     },
     computed: {

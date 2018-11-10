@@ -12,11 +12,11 @@ export default {
 
         <input type="radio" value="unread" v-model="filter">
         <label for="unread">Unread</label>
-
-        <span>filter: {{ filter }}</span>
-
-        <input v-on:keyup="" v-model.trim="userKeyword" placeholder="Search your emails" type="text">    
-
+        <input type="checkbox" value="date" v-model="sortByDate" >
+        <label for="date">Filter By Date</label>
+        
+        <input class="keywordSearch" v-model.trim="userKeyword" placeholder="Search your emails" type="text">    
+        
         </section>
     `,
 
@@ -24,6 +24,7 @@ export default {
         return {
          filter:'all',
          userKeyword:null,
+         sortByDate:null,
         }
     },
     created() {
@@ -32,8 +33,6 @@ export default {
     },
     methods: {
        
-            
-        
     },
     computed: {
 
@@ -47,6 +46,11 @@ export default {
         },
         userKeyword(newUserKeywod){
             this.$emit('filterbyKeyword', newUserKeywod);
-        }
+        },  
+        sortByDate(isChecked){
+            if(isChecked){
+                this.$emit('sortByDate');
+            } 
+        }    
     }
 }

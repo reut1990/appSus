@@ -1,10 +1,11 @@
 
 export default {
     template: `
-        <section class="">
+        <section class="compose">
             <button class="close-compose-btn" v-on:click="closeComposeEmail">Close Draft</button>
-                    <h1>COMPOSE EMAIL</h1>
-        <textarea rows="20" cols="50"></textarea>
+            <input type="text" name="subject"  placeholder="Subject">
+            <input type="email" id="email"    placeholder="Email">
+        <textarea></textarea>
         </section>
     `,
 
@@ -15,7 +16,7 @@ export default {
     },
     created() {
        
-    
+    console.log('compse email created');
     },
     methods: {
         closeComposeEmail(){

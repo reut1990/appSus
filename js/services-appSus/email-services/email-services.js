@@ -69,11 +69,20 @@ function _createEmails(numOfEmails) {
     return emails;
 }
 
+function sortByDate(){
+    var emails = storageService.load(EMAILS_KEY);
+    emails.sort(function(emailA, emailB){
+        return emailA.sentAt-emailB.sentAt;
+    });
+   storageService.store(EMAILS_KEY, emails)
+}
+
 function _createEmail() {
+    var emailLength = utilService.getRandomInt(1000, 3000)
     var email = {
         id: utilService.makeId(),
         subject: utilService.makeLorem(20),
-        body: utilService.makeLorem(3000),
+        body: utilService.makeLorem(emailLength),
         isRead: false,
         sentAt: utilService.getRandomInt(1472979679000, 1541322079000)
     }
@@ -100,5 +109,6 @@ export const emailServices = {
     saveEmails,
     updateEmailStatus,
     getEmailCount,
-    deleteEmail
+    deleteEmail,
+    sortByDate
 }
