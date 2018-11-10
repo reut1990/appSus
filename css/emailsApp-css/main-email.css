@@ -39,13 +39,13 @@
 }
 
 
-/* EMAIL */
-.email{
+/* EMAIL Preview */
+.emailPreview{
     outline: 1px solid black;
     padding: 2px;
     cursor: pointer;
     text-align: left;
-    height: 5%;
+    height: 15%;
 }
 .email-icon{
     float:right;
@@ -55,9 +55,8 @@
     cursor: pointer;
     background-repeat:no-repeat;
     background-size:contain;
-
-
 }
+
 .isReadIcon{
     background-image: url('../../email-icons/read.png');
 }
@@ -65,8 +64,8 @@
     background-image: url('../../email-icons/unread.png');
 }
 
-section.inbox-container > section.email > button{
-    float: right;
+.emailPreview > .emailSubject{
+    margin-right: 10px;
 }
 
 
@@ -79,11 +78,55 @@ section.inbox-container > section.email > button{
 }
 
 /* COMPOSE EMail */
-.openedEmail{
-    background-color: hotpink;
+
+.compose{
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+}
+.compose input{
+    height: 30px
+}
+.compose textarea{
+    height: 400px;
+    position: initial;
 }
 
 
+/* READ EMAIL */
+.openedEmail{
+    border: 5px solid black;
+    overflow: hidden;
+    height: 100%;
+    background-color: rgba(255,250,250, .8);
+    padding: 20px;
+
+}
+.close-btn{
+    float:right
+}
+.emailSubject{
+    font-weight: bold;
+    float:left
+}
+.openedEmail > .emailSubject{
+    font-size: 30px;
+}
+
+.emailBody{
+    padding: 15px;
+    position: relative;
+    text-align: left;
+    float: left;
+}
+.email-timestamp{
+    color: gray
+}
+
+.openedEmail >.email-timestamp{
+    float: right;
+    padding-right: 20px;
+}
 
 
 /* count */
@@ -97,16 +140,4 @@ section.inbox-container > section.email > button{
     font-size:22px;
     font-weight: bold;
     text-align: left;
-}
-.compose{
-    padding:20px;
-    display:flex;
-    flex-direction: column;
-}
-.compose input{
-    height: 30px
-}
-.compose textarea{
-    height: 400px;
-    position: initial;
 }

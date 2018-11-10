@@ -1,11 +1,11 @@
 export default {
     props: ['email'],
     template: `
-        <section v-if="email" class="email openedEmail">
-            <button class="close-btn" v-on:click="closeEmail">Close email</button>
-             <div>EMAIL DETAILS</div>
-             <div>{{email.subject}}</div>
-             <div>{{email.body}}</div>
+        <section v-if="email" class="openedEmail">
+            <img src='../../email-icons/close.png'  class="close-btn email-icon" v-on:click="closeEmail">
+            <span class="email-timestamp" >{{displayDate}}</span>
+             <div class="emailSubject">{{email.subject}}</div>
+             <div class="emailBody">{{email.body}}</div>
             </section>
     `,
     data() {
@@ -14,7 +14,6 @@ export default {
         }
     },
     created() {
-        // console.log('testing', this.email.id, this.email.subject)
     },
     methods: {
         closeEmail(){
@@ -23,7 +22,10 @@ export default {
        
     },
     computed: {
-
+        displayDate(){
+            var d = new Date(this.email.sentAt);
+           return d.toDateString();
+        },
 
     },
     components: {

@@ -3,12 +3,12 @@ import emailList from './email-list.cmp.js'
 export default {
     props: ['email'],
     template: `
-            <section class="email" v-bind:class="{isRead: email.isRead}">
+            <section class="emailPreview" v-bind:class="{isRead: email.isRead}">
             
 
-               <span class="email-subject ">Subject: {{email.subject}}</span>
-               <span class="email-body">Body:{{emailText}}</span>
-               <span class="email-timestamp">{{displayDate}}</span>
+               <span class="emailSubject"> {{email.subject}}</span>
+               <span class="email-body">{{emailText}}</span>
+               <span class="email-timestamp" >{{displayDate}}</span>
                <div v-bind:class="{isReadIcon: email.isRead, isNotReadIcon: !email.isRead}" class="email-icon"  v-on:click="toggleReadStatus" ></div>
                <img src='../../email-icons/delete.png' class="delete-email-btn  email-icon" v-on:click="deleteEmail">
 
@@ -39,7 +39,7 @@ export default {
     },
     computed: {
         emailText() {
-            return this.email.body.substring(0, 20) + '.......';
+            return this.email.body.substring(0, 40) + '.......';
             
         },
         displayDate(){
