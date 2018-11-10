@@ -40,8 +40,7 @@ export default {
         }
     },
     created() {
-        var prmGetEmails = emailServices.query();
-        prmGetEmails.then(emails => this.displayedEmails = emails).then(emails => this.displayedEmails = emails);
+        this.updateDisplayedEmails();
         this.getUpdatedNumOfEmails();
     },
     methods: {
@@ -52,13 +51,11 @@ export default {
             this.selectedEmail = email;
             this.emailId = email.id;
 
-            // this.$router.push(`/email/${email.id}`)
 
         },
         isRead(email) {
             emailServices.updateEmailStatus(email, !email.isRead);
-            var prm = emailServices.query()
-            prm.then(emails => this.displayedEmails = emails);
+            this.updateDisplayedEmails();
         },
         resetEmailIdtoNull() {
             this.selectedEmail = null;
@@ -70,13 +67,13 @@ export default {
 
         filterEmails(filter) {
             this.filter = filter;
-            var prmFilterEmails = emailServices.query(this.filter);
-            prmFilterEmails.then(emails => this.displayedEmails = emails);
+            this.updateDisplayedEmails();
+
         },
         filterbyKeyword(keyword) {
             this.keyword = keyword;
-            var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
-            prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
+            this.updateDisplayedEmails();
+
         },
         closeComposeEmail() {
             this.composeEmail = null;
@@ -85,20 +82,23 @@ export default {
             var emails = emailServices.getEmailCount();
             this.emailCount = emails.readEmails;
             this.totalNumOfEmails = emails.totalNumOfEmails;
-            console.log(this.emailCount, this.totalNumOfEmails)
         },
-        deleteEmail(email){
-            if(this.emailId){
-                this.emailId=null;
+        deleteEmail(email) {
+            if (this.emailId) {
+                this.emailId = null;
             }
             emailServices.deleteEmail(email);
-            var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
-            prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
+            this.updateDisplayedEmails();
+
         },
-        sortByDate(){
-         emailServices.sortByDate();
-         var prmSortedEmails = emailServices.query(this.filter, this.keyword);
-         prmSortedEmails.then(emails => this.displayedEmails = emails);                                       
+        sortByDate() {
+            emailServices.sortByDate();
+            this.updateDisplayedEmails();
+
+        },
+        updateDisplayedEmails() {
+            var prm = emailServices.query(this.filter, this.keyword);
+            prm.then(emails => this.displayedEmails = emails);
         }
     },
     computed: {

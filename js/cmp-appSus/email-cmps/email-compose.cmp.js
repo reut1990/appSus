@@ -16,7 +16,6 @@ export default {
     },
     created() {
        
-    console.log('compse email created');
     },
     methods: {
         closeComposeEmail(){
