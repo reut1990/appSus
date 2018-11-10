@@ -18,6 +18,7 @@ export default{
           <form class="input-form">
               <input v-on:click="inputClicked('text-note')" ref="myInput" type="text" placeholder="type your note..." v-model="noteTxt">
           </form>
+        
           <div class="tooltip" v-on:click="inputClicked('new-list')">
               <img class="new-list" src="./img/newList.png" alt="new List">
               <span class="tooltiptext">New List</span>
@@ -27,6 +28,10 @@ export default{
               <span class="tooltiptext">New Note with Image Note</span>
           </div>
       </div>
+      <form  v-if="isShow" class="input-search">
+              <input ref="myInput" type="text" placeholder="search note..." v-model="search">
+               <button v-on:click="showNotesBySearch" type="button">search</button>
+      </form>
       <img class="pin"   v-if="!isShow" src="./img/pin-icon.png">
             <component 
                ref="noteForm"
@@ -45,6 +50,7 @@ export default{
             isShow: true,
             component: null,
             notesCreated:[],
+            search:'',
         }
     },
     created() {
@@ -56,17 +62,17 @@ export default{
             this.component = componentName;
 
         },
-        close() {
+            close() {
             this.isShow = true;
         },
         addNote(){
-
-            
-            missKeepService.addNote(this.$refs.noteForm.fromData);
+           missKeepService.addNote(this.$refs.noteForm.fromData);
             this.notesCreated= missKeepService.getNotes();
             this.isShow = true;
-        
         },
+        showNotesBySearch(){
+            console.log(this.search);
+        }
       
 
     },
