@@ -44,8 +44,6 @@ export default {
 
         },
         updateImgSrc(){
-            console.log(this.imgUrl);// pay attention both bind to style 
-            // need to add background color and img in style data
             this.bgImg = {'background-image': `url('${this.imgUrl}')`}
         },
         updateTitle(title){

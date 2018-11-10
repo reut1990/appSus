@@ -1,0 +1,26 @@
+
+
+.notes-found ul{
+    display: flex;
+    flex-direction: row;
+    border: 2px outset black;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.notes-found h6{
+    font-size: 20px;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+
+}
+
+@media(min-width:700px){
+
+    .notes-found ul{
+          width: 500px;
+    }
+    }
