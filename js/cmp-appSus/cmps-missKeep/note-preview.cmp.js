@@ -1,50 +1,47 @@
 
+import textNoteTemplate from './text-note-template.cmp.js';
+import imgNoteTemplate from './img-note-template.cmp.js';
+import listNoteTemplate from './list-note-template.cmp.js';
 
-import textNote from '../cmps-missKeep/text-note.cmp.js';
-import newImg from '../cmps-missKeep/new-img.cmp.js';
-import newList from '../cmps-missKeep/new-list.cmp.js';
+
 
 export default {
     props: ['note'],
    template: `
-      <li class="note-item">
-      <img class="pin"  src="../../img/pin-icon.png">
-            <component 
-                :is="component"
-                :isDisabled="isDisabled" 
-                v-bind:note="note"
-                @dblclick.native="handleDblClick" 
-                :style="note.style"  
-            ></component>
-      </li>
-
+   <section>
+         <img class="pin"  src="./img/pin-icon.png">   
+         <text-note-template v-if="isTextNote" v-bind:note="note"></text-note-template>
+         <img-note-template v-if="isImgNote" v-bind:note="note"></img-note-template>
+         <list-note-template v-if="islistNote" v-bind:note="note"></list-note-template>
+   </section>
   `,
+
     data() {
-        return {
-            component: '',
-            isDisabled: true
+        return{
+        isTextNote:false,
+        islistNote:false,
+        isImgNote:false
         }
     },
 
     methods: {
-        showNotes(componentName) {
-            this.component = componentName;
-            console.log(this.component);
-        },
-        handleDblClick(){
-            console.log('double click happened')
-            this.isDisabled = ! this.isDisabled
-        }
+      
+
     },
     created() {
-        if(this.note) this.showNotes(this.note.type)
+        console.log('note brought to note preview', this.note);
+       if(this.note.type==='text-note') this.isTextNote=true;
+       else if(this.note.type==='new-list') this.islistNote=true;
+       else if(this.note.type==='new-img') this.isImgNote=true;
     },
     computed: {
 
     },
     components: {
-        'text-note': textNote,
-        'new-img': newImg,
-        'new-list': newList,
+      textNoteTemplate,
+      imgNoteTemplate,
+      listNoteTemplate
+
     }
 }
+

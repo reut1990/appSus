@@ -1,6 +1,6 @@
 
 
-import notePreview from './note-preview.cmp.js';
+import notePreview from './note-preview.cmp.js'
 
 
 
@@ -19,7 +19,6 @@ export default {
         }
     },
     created(){
-        // console.log(this.notes);
     },
     methods: {
    

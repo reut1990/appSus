@@ -1,0 +1,23 @@
+
+
+.template-preview-txtNote, .template-preview-listNote,.imgNote-template{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: white;
+    text-align: center;
+    box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+   margin: 10px;
+}
+
+.template-preview-txtNote, .template-preview-listNote, .imgNote-template h5{
+ font-size:20px;
+ text-transform: capitalize;
+ text-decoration: underline;
+ margin: 5px;
+} 
+
+
+.template-preview-listNote ul{
+    padding: 10px;    
+}

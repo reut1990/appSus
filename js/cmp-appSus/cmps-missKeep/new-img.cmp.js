@@ -11,7 +11,7 @@ export default {
     template: `
     <section class="new-img-list">
     <div class="upload-img-container">
-         <div class="img-container" :style="style"></div>
+         <div class="img-container" :style="bgImg"></div>
          <form class="input-src" @submit.prevent="updateImgSrc">
               <input :disabled="isDisabled"  placeholder="Insert img url" v-model="imgUrl">
               <button type="sumbit" >Upload Pic</button>
@@ -26,6 +26,7 @@ export default {
             title: '',
             txt: '',
             style:{},
+            bgImg:{}
         }
     },
     created(){
@@ -34,6 +35,7 @@ export default {
             this.txt=this.note.txt;
             this.imgUrl=this.note.imgUrl;
             this.style=this.note.style;
+            this.bgImg=this.note.bgImg;
           }
     },
     methods: {
@@ -44,7 +46,7 @@ export default {
         updateImgSrc(){
             console.log(this.imgUrl);// pay attention both bind to style 
             // need to add background color and img in style data
-            this.style = {'background-image': `url('${this.imgUrl}')`}
+            this.bgImg = {'background-image': `url('${this.imgUrl}')`}
         },
         updateTitle(title){
             this.title=title;
@@ -64,7 +66,8 @@ export default {
                 imgUrl: this.imgUrl,
                 title: this.title,
                 txt: this.txt,
-                style:this.style
+                style:this.style,
+                bgImg:this.bgImg,
             }
         },
     },
