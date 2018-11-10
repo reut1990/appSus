@@ -7,38 +7,41 @@ import newList from './new-list.cmp.js';
 export default {
     props: ['note'],
    template: `
-      <li class="note-item">
-      <img class="pin"  src="../../img/pin-icon.png">
+
+      <li class="note-item" >  
             <component 
                 :is="component"
-                :style="note.style"  
+                :style="note.style" 
+                :note='note'
             ></component>
       </li>
 
   `,
-//                 :isDisabled="isDisabled" 
-// v-bind:note="note"
-// @dblclick.native="handleDblClick" 
+                // ref="noteForm", 
+
     data() {
         return {
             component: '',
-            isDisabled: true
         }
     },
 
     methods: {
         showNotes(componentName) {
             this.component = componentName;
-            console.log(this.component);
+            console.log(this.component); 
+
         },
-        // handleDblClick(){
-        //     console.log('double click happened')
-        //     this.isDisabled = ! this.isDisabled
+        // newData(){
+        // this.$emit('newData',this.$refs.noteForm.fromData);
         // }
+        
     },
     created() {
-        // if(this.note) this.showNotes(this.note.type)
+        if(this.note) this.showNotes(this.note.type);
+
     },
+
+    
     computed: {
 
     },

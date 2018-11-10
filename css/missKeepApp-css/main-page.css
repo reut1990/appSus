@@ -2,13 +2,13 @@
 
 /********************miss-keep header********************  */
 
-.miss-keep-app h1{
+.app-title{
     text-align: center;
-     text-shadow: 5px 2px 2px lightblue;
-     background-color: aliceblue;
-     border-radius: 25px;
-     font-size: 30px;
-     padding: 5px; 
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+    color: darkblue;  
+    font-size: 40px;
+     padding: 5px;
+     margin: 10px; 
  }
  
  
@@ -18,8 +18,10 @@
      flex-direction: row;;
      justify-content: center;
      border:2px outset gray;
-     width: 60%;
-     margin: auto 
+     width: fit-content;
+     margin: auto;
+     box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+
  }
  .input-form{
      margin: auto 10px;
@@ -88,8 +90,17 @@
      margin: 0 48%;
  }
  
+ button{
+    background-color: antiquewhite;
+    opacity: 0.9;
+    border: 2px solid darkblue;
+    border-radius: 25px;
+    font-family: cursive;
+    margin: 5px;
+}
 
- @media(min-width:420px){/* tablet  */
+
+ @media(min-width:700px){/* tablet  */
  }
  
  @media(min-width:1024px){/* desktop */

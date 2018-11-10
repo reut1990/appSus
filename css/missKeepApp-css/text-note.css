@@ -10,6 +10,8 @@
     padding: 10px;
     margin: auto;
     transition: .4s;
+    box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+
 }
 
 #txt-box{
@@ -20,19 +22,23 @@
         overflow: hidden;
         box-sizing: border-box;
         background-color: inherit;
+        background-color: antiquewhite;
+
     
 }
 
 .input-form-header{
     display: flex;
     flex-direction: row;
-
 }
+
 
 .input-form-header input{
     height: 30px;
     width: 80%;
     background-color: inherit;
+    background-color: antiquewhite;
+
 
 }
 
@@ -40,6 +46,15 @@
 .edit-text-note{
     display: flex;
     flex-direction: row;
-    width: 400px;
+    /* width: 400px; */
     justify-content: space-between;
+
+}
+
+
+@media(min-width:700px){
+
+.text-note{
+      width: 500px;
+}
 }
