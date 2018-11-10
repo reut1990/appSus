@@ -3,7 +3,8 @@ export default {
     template: `
         <section class="">
             <button class="close-compose-btn" v-on:click="closeComposeEmail">Close Draft</button>
-                    <h1>COMPOSE EMAIL</h1>
+            <input type="text" name="subject" size="30" placeholder="Subject">
+            <input type="email" id="email"  size="30"  placeholder="Email" required>
         <textarea rows="20" cols="50"></textarea>
         </section>
     `,

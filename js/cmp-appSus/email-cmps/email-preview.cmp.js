@@ -9,14 +9,14 @@ export default {
                <span class="email-subject ">Subject: {{email.subject}}</span>
                <span class="email-body">Body:{{emailText}}</span>
                <span class="email-timestamp">{{displayDate}}</span>
-               <img src='../../email-icons/read.png' class="email-read-btn email-icon"  v-on:click="toggleReadStatus" ></span>
+               <div v-bind:class="{isReadIcon: email.isRead, isNotReadIcon: !email.isRead}" class="email-icon"  v-on:click="toggleReadStatus" ></div>
                <img src='../../email-icons/delete.png' class="delete-email-btn  email-icon" v-on:click="deleteEmail">
 
 
             </section>
     `,
-// v-bind:class="{isReadIcon: email.isRead}
-
+// 
+//src='../../email-icons/read.png'
     data() {
         return {
             emailSelected: null,

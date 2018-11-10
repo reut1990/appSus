@@ -31,9 +31,7 @@
     overflow-y:hidden;
 }
 
-.inbox-container{
-    
-}
+
 .compose-email-btn{
     grid-row: 4/span 1;
     grid-column: 1/span 2;
@@ -54,15 +52,17 @@
     width:20px;
     object-fit: cover;   
     cursor: pointer;
+    background-repeat:no-repeat;
+    background-size:contain;
 
 
 }
-.delete-email-btn{
-    
+.isReadIcon{
+    background-image: url('../../email-icons/read.png');
 }
-.email-read-btn{
+.isNotReadIcon{
+    background-image: url('../../email-icons/unread.png');
 }
-
 
 section.inbox-container > section.email > button{
     float: right;
