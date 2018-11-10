@@ -75,13 +75,20 @@ function _createEmail() {
         subject: utilService.makeLorem(20),
         body: utilService.makeLorem(3000),
         isRead: false,
-        sentAt: new Date(utilService.getRandomInt(1472979679000, 1541322079000))
+        sentAt: utilService.getRandomInt(1472979679000, 1541322079000)
     }
     return email;
 }
 
+function getEmailCount(){
+    var emails = storageService.load(EMAILS_KEY);
+    var readEmails = emails.filter(email=> email.isRead).length
+    return {readEmails:readEmails, totalNumOfEmails: emails.length }
+     ;
+}
 export const emailServices = {
     query,
     saveEmails,
     updateEmailStatus,
+    getEmailCount
 }

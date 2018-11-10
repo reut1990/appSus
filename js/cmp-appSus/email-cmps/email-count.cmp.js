@@ -1,10 +1,10 @@
 export default {
-    props:['emails'],
+    props:['emailCount', 'totalNumOfEmails'],
     template: `
         <section class="email">
         <ul class="email-count">
-                    <li>Read Emails: <span>{{emailReadCount}}</span></li>
-                    <li>Unread Emails: <span>{{emails.length - emailReadCount}}</span></li>
+                    <li>Read Emails: <span>{{+emailCount}}</span></li>
+                    <li>Unread Emails: <span>{{+totalNumOfEmails - +emailCount}}</span></li>
                 </ul>
         </section>      
     `,
@@ -21,9 +21,7 @@ export default {
        
     },
     computed: {
-        emailReadCount(){
-            return this.emails.filter(email=> email.isRead).length;
-        }
+        
 
     },
     components: {

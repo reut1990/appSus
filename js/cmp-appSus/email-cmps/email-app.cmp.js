@@ -12,14 +12,14 @@ export default {
     template: `
         <section class="emailApp" >
         <email-filter @filterEmails="filterEmails" @filterbyKeyword="filterbyKeyword"></email-filter>
-        <email-count :emails="displayedEmails"></email-count>
+        <email-count :emailCount="emailCount" :totalNumOfEmails="totalNumOfEmails"></email-count>
         <button class="compose-email-btn" v-on:click="onComposeEmail">Compose New Email</button>
 
             <!-- <router-view :emails="emails" :email="selectedEmail"
                 @email-open="openEmail"></router-view> -->
                 <email-details v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
                 <email-list v-else-if="displayedEmails.length > 0 && !composeEmail" @isEmailRead="isRead" @isRead="setOpenedEmail(email)" @email-opened="setOpenedEmail" :emails="displayedEmails"></email-list>   
-                <email-compose v-if="composeEmail"  ></email-compose>  
+                <email-compose v-if="composeEmail"  @closeComposeEmail="closeComposeEmail"></email-compose>  
             
         <!-- TODO: CHANGE TO ROUNTER IF THERE IS TIME -->
         </section>
@@ -27,7 +27,9 @@ export default {
 
     data() {
         return {
-            emails: [],
+
+            totalNumOfEmails: 0,
+            emailCount: 0,
             displayedEmails: [],
             selectedEmail: null,
             emailId: null,
@@ -38,7 +40,8 @@ export default {
     },
     created() {
         var prmGetEmails = emailServices.query();
-        prmGetEmails.then(emails => this.displayedEmails = emails).then(emails => this.displayedEmails = emails);;
+        prmGetEmails.then(emails => this.displayedEmails = emails).then(emails => this.displayedEmails = emails);
+        this.getUpdatedNumOfEmails();
     },
     methods: {
         setOpenedEmail(email) {
@@ -73,12 +76,24 @@ export default {
             this.keyword = keyword;
             var prmFilterEmailsbyKeyword = emailServices.query(this.filter, keyword);
             prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
+        },
+        closeComposeEmail() {
+            this.composeEmail = null;
+        },
+        getUpdatedNumOfEmails() {
+            var emails = emailServices.getEmailCount();
+            this.emailCount = emails.readEmails;
+            this.totalNumOfEmails = emails.totalNumOfEmails;
+            console.log(this.emailCount, this.totalNumOfEmails)
         }
-
-
     },
     computed: {
 
+    },
+    watch: {
+        displayedEmails() {
+            this.getUpdatedNumOfEmails();
+        }
     },
     components: {
         emailList,
