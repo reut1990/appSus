@@ -23,7 +23,7 @@ export default{
               <span class="tooltiptext">New List</span>
           </div>
           <div class="tooltip" >
-              <img  v-on:click="inputClicked('new-img')" class="new-list-img"src="./img/newImage.png" alt="new Image">
+              <img  v-on:click="inputClicked('new-img')" class="new-img"src="./img/newImage.png" alt="new Image">
               <span class="tooltiptext">New Note with Image Note</span>
           </div>
       </div>
@@ -62,7 +62,7 @@ export default{
         },
         addNote(){
 
-            console.log('form comp', this.$refs.noteForm.fromData);
+            // console.log('form comp', this.$refs.noteForm.fromData);
             
             missKeepService.addNote(this.$refs.noteForm.fromData);
             this.notesCreated= missKeepService.getNotes();
