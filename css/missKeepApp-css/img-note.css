@@ -1,0 +1,26 @@
+
+
+/*****************new image note ******************8 */
+ 
+
+ .upload-img-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container{
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+    border: 2px solid lightblue;
+    background-position: center center;
+}
+
+
+
+.input-src{
+    display: flex;
+    flex-direction: row;
+}
+

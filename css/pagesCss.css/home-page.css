@@ -1,0 +1,70 @@
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Eurofurenceregular;
+}
+
+.home h1{
+    font-size: 60px;
+    letter-spacing: 3px;
+
+}
+
+.home h4{
+    font-size: 40px;
+    margin: 5px;
+    text-align: center;
+}
+
+.home h6{
+    font-size: 30px;
+    margin: 10px;
+}
+.home h1,h4{
+    color: darkblue;
+    letter-spacing:10px;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+}
+
+
+.products{
+    display: flex;
+    margin-top: 15px;
+}
+.products img{
+  height: 150px;
+  width: 150px;
+  border-radius: 25px;
+  margin-top: 5px;
+  box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+
+
+}
+.products div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+    color: darkblue;
+}
+
+@media(min-width:700px){/* tablet  */
+  
+    .home h1{
+        margin: 10px;
+    }
+
+    .products img{
+        height: 200px;
+        width: 200px;
+    }
+ 
+}
+  
+  @media(min-width:1024px){/* desktop */
+ 
+
+}

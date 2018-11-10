@@ -1,7 +1,16 @@
 /* @import "tablet.css"  screen and (min-width : 420px);
 @import "desktop.css"  screen and (min-width : 1024px); */
 @import './emailsApp-css/main-email.css';
+
 @import './missKeepApp-css/main-page.css';
+@import './missKeepApp-css/text-note.css';
+@import './missKeepApp-css/img-note.css';
+@import './missKeepApp-css/list-note.css';
+@import './missKeepApp-css/notes-created.css';
+
+@import './nav-bar.css';
+@import './pagesCss.css/home-page.css';
+@import './pagesCss.css/about-page.css';
 
 *{
     Box-sizing:border-box;
@@ -9,5 +18,8 @@
     
 html,body{
     height: 100vh;
-	margin: 0;
+    margin: 0;
+    background-image: url('../img/technology.jpg');
+    background-size: cover;
 }
+

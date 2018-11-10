@@ -1,0 +1,45 @@
+ /***************************** text note******************************/
+ 
+ 
+ .text-note{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border: 2px solid lightblue;
+    width: 70%;
+    padding: 10px;
+    margin: auto;
+    transition: .4s;
+}
+
+#txt-box{
+        resize: none;
+        width: 90%;
+        min-height: 100px;
+        padding: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        background-color: inherit;
+    
+}
+
+.input-form-header{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.input-form-header input{
+    height: 30px;
+    width: 80%;
+    background-color: inherit;
+
+}
+
+
+.edit-text-note{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+}

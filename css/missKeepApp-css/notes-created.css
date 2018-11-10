@@ -1,0 +1,13 @@
+
+ /**************** notes created presented in a list************************/
+ .notes-created{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ }
+ 
+ .note-item{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
