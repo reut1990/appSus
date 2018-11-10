@@ -69,6 +69,14 @@ function _createEmails(numOfEmails) {
     return emails;
 }
 
+function sortByDate(){
+    var emails = storageService.load(EMAILS_KEY);
+    emails.sort(function(emailA, emailB){
+        return emailA.sentAt-emailB.sentAt;
+    });
+   storageService.store(EMAILS_KEY, emails)
+}
+
 function _createEmail() {
     var email = {
         id: utilService.makeId(),
@@ -100,5 +108,6 @@ export const emailServices = {
     saveEmails,
     updateEmailStatus,
     getEmailCount,
-    deleteEmail
+    deleteEmail,
+    sortByDate
 }

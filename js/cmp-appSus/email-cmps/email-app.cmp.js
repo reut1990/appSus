@@ -11,7 +11,7 @@ import emailCompose from './email-compose.cmp.js'
 export default {
     template: `
         <section class="emailApp" >
-        <email-filter @filterEmails="filterEmails" @filterbyKeyword="filterbyKeyword"></email-filter>
+        <email-filter @filterEmails="filterEmails" @filterbyKeyword="filterbyKeyword" @sortByDate="sortByDate"></email-filter>
         <email-count :emailCount="emailCount" :totalNumOfEmails="totalNumOfEmails"></email-count>
         <button class="compose-email-btn" v-on:click="onComposeEmail">Compose New Email</button>
 
@@ -88,10 +88,14 @@ export default {
             console.log(this.emailCount, this.totalNumOfEmails)
         },
         deleteEmail(email){
-            console.log('app', email)
             emailServices.deleteEmail(email);
             var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
             prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
+        },
+        sortByDate(){
+         emailServices.sortByDate();
+         var prmSortedEmails = emailServices.query(this.filter, this.keyword);
+         prmSortedEmails.then(emails => this.displayedEmails = emails);                                       
         }
     },
     computed: {
