@@ -2,44 +2,48 @@
 'use strict;'
 
 import { utilService} from '../../utils.JS'
+const NOTES_KEY = 'notes';
 
 
 var notesDB=[];
 
 function queryMissKeep() {
-    var notes = storageService.load(NOTES_KEY);
-    if (!notes) {
-      notes = getNotesFromJson();
-      utilService.store(NOTES_KEY, notes)
-    }
-    notesDB = notes;
-    return Promise.resolve(notesDB);
+    var notes = utilService.getFromStorage(NOTES_KEY);
+    if (!notes)  notes=notesDB;
+    utilService.store(NOTES_KEY, notes)
+    return Promise.resolve(notes);
   }
 
 function addNote(note) {
     notesDB.push(note);
-    // console.log(notesDB);
-}
+    utilService.saveToStorage(NOTES_KEY, notesDB);
+  }
 
 function getNotes(){
   return notesDB;
 }
 
-function editNote(note){// NOT WORKING YET
+function editNote(note){// NOT activated YET
    var noteIdx=notesDB.findIndex(note.id);
    console.log(noteIdx, notesDB);
    notesDB[noteIdx]=note;
-   utilService.store(NOTES_KEY, notesDB)
+   utilService.saveToStorage(NOTES_KEY, notesDB)
 
 }
 
-function deleteNote(note){//NOT WORKING YET
+function deleteNote(note){//NOT activated YET
   var noteIdx=notesDB.findIndex(note.id);
   notesDB.splice(noteIdx, 1);
-  utilService.store(NOTES_KEY, notesDB)
-
-
+  utilService.saveToStorage(NOTES_KEY, notesDB)
 }
+
+function pinNote (note){// not activated yet
+  var noteIdx=notesDB.findIndex(note.id);
+  notesDB.splice(noteIdx, 1);
+  notesDB.unshift(note);
+  utilService.saveToStorage(NOTES_KEY, notesDB)
+}
+
 
 
 export const missKeepService = {
@@ -48,8 +52,6 @@ export const missKeepService = {
     getNotes,
     editNote,
     deleteNote,
+    pinNote,
   
   }
-
-  // return memos.filter(memo => memo.title.toUpperCase().includes(filter.byTitle.toUpperCase()))
-  //                       .filter(memo => memo.type.toUpperCase().includes(filter.byType.toUpperCase()),
