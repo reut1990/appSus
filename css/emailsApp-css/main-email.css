@@ -105,6 +105,9 @@
 .close-btn{
     float:right
 }
+.openedEmail > .delete-email-btn{
+    margin-right:5px;
+}
 .emailSubject{
     font-weight: bold;
     float:left

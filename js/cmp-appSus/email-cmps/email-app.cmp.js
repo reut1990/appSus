@@ -18,7 +18,7 @@ export default {
             <!-- <router-view :emails="emails" :email="selectedEmail"
                 @email-open="openEmail"></router-view> -->
                 <section class="email-wrapper">
-                <email-details v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
+                <email-details @deleteEmail="deleteEmail" v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
                 <email-list v-else-if="displayedEmails.length > 0 && !composeEmail" @isEmailRead="isRead" @isRead="setOpenedEmail(email)" @deleteEmail="deleteEmail" @email-opened="setOpenedEmail" :emails="displayedEmails"></email-list>   
                 <email-compose v-if="composeEmail"  @closeComposeEmail="closeComposeEmail"></email-compose>  
                 </section>
@@ -88,6 +88,9 @@ export default {
             console.log(this.emailCount, this.totalNumOfEmails)
         },
         deleteEmail(email){
+            if(this.emailId){
+                this.emailId=null;
+            }
             emailServices.deleteEmail(email);
             var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
             prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
