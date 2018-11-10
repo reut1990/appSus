@@ -1,42 +1,99 @@
 
-
+/* APP */
 .emailApp{
     height: 100vh;
     background-image: url('../../img/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover; 
     text-align: center;
+    overflow-y:hidden;
+    padding:20px;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-gap:5px;
 }
 
 
+/* FILTER */
+.email-filter{
+    grid-row: 1/span 1;
+    grid-column: 5/span 5;
+    font-size: 25px;
+}
+
+
+/* INBOX */
+.email-wrapper{
+    background-color: rgba(255,250,250, .8);
+    grid-column: 3/span 9;
+    grid-row:2/span 11;
+    overflow-y:hidden;
+}
 
 .inbox-container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    background-color: rgba(255,250,250, .8);
-    bottom:0px;
-    align-self: flex-end;
-    height: 60vh;
+    
+}
+.compose-email-btn{
+    grid-row: 4/span 1;
+    grid-column: 1/span 2;
 }
 
+
+/* EMAIL */
 .email{
     outline: 1px solid black;
     padding: 2px;
     cursor: pointer;
+    text-align: left;
+    height: 5%;
+}
+.email-icon{
+    float:right;
+    height: 20px;
+    width:20px;
+    object-fit: cover;   
+    cursor: pointer;
+
+
+}
+.delete-email-btn{
+    
+}
+.email-read-btn{
 }
 
-.email-count{
-    background-color: lightblue;
-    outline:1px solid black;
-    padding: 30px;
+
+section.inbox-container > section.email > button{
+    float: right;
+}
+
+
+.isRead{
+    background-color: green;
 }
 
 .selected{
     background-color: lightblue;
 }
 
+/* COMPOSE EMail */
 .openedEmail{
     background-color: hotpink;
+}
+
+
+
+
+/* count */
+.email-count{
+    grid-row: 3/span 1;
+    grid-column: 1/span 2;
+    background-color:rgba(255,228,196, .4)
+}
+
+.email-count-list{
+    font-size:22px;
+    font-weight: bold;
+    text-align: left;
 }

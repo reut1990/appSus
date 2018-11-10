@@ -3,7 +3,7 @@
 
 export default {
     template: `
-        <section class="">
+        <section class="email-filter">
 
         <input type="radio" value="all" v-model="filter">
         <label for="all">All</label>
@@ -44,6 +44,9 @@ export default {
     watch:{
         filter(newFilter){
             this.$emit('filterEmails', newFilter);
+        },
+        userKeyword(newUserKeywod){
+            this.$emit('filterbyKeyword', newUserKeywod);
         }
     }
 }
