@@ -11,19 +11,19 @@ export default {
     <section class="new-list-note"  v-bind:style="style">
 	   <div class="toDo-container" id="todo">
             <section class="input-task-container">	
-				<button :disabled="isDisabled" id="mark-all" @click="selectAll" :checked="areAllSelected">select All</button>
-				<input :disabled="isDisabled"   v-model="newTask" @keyup.enter="addTask" placeholder="Type your task..." autofocus class="text-input">
-				<button :disabled="isDisabled"  @click="clearList">Clear List</button>
+				<button  id="mark-all" @click="selectAll" :checked="areAllSelected">select All</button>
+				<input    v-model="newTask" @keyup.enter="addTask" placeholder="Type your task..." autofocus class="text-input">
+				<button  @click="clearList">Clear List</button>
             </section> 
-            <input  :disabled="isDisabled" type="color" id="html5colorpicker"  v-on:change="changeBackground" value="#ff0000" >
-            <input  :disabled="isDisabled" class="title-list"  type="text" placeholder="Title..." v-model="title"/>
+            <input   type="color" id="html5colorpicker"  v-on:change="changeBackground" value="#ff0000" >
+            <input  class="title-list"  type="text" placeholder="Title..." v-model="title"/>
             <section class="list"  >
 				<ul class="list-item">
 					<li v-for="task in tasks" :class="{done: isChecked(task)}">
-						<input  :disabled="isDisabled" type="checkbox" class="checkbox" @click="check" v-model="task.checked">
-						<input  :disabled="isDisabled" type="text" v-if="task === editingTask" v-auto-focus class="text-input" @keyup.enter="finishEditing(task)" @blur="endEditing(task)" v-model="task.text">
+						<input   type="checkbox" class="checkbox" @click="check" v-model="task.checked">
+						<input  type="text" v-if="task === editingTask" v-auto-focus class="text-input" @keyup.enter="finishEditing(task)" @blur="endEditing(task)" v-model="task.text">
      					<label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)">{{ task.text }}</label>
-						<button :disabled="isDisabled"  class="delete" @click="removeTask(task)">X</button>
+						<button   class="delete" @click="removeTask(task)">X</button>
 					</li>
 				</ul>
 			</section>

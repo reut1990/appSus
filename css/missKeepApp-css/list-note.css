@@ -1,10 +1,21 @@
  /**************************List note************************/
  
-  .toDo-container{
+  .new-list-note{
     border: 2px solid lightblue;
     padding: 10px;
-}
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
 
+}
+.toDo-container{
+    margin: auto;
+}
+.new-list-note input{
+    background-color: antiquewhite;
+}
 .input-task-container, li {
     display: flex;
     align-items: center;
@@ -13,11 +24,14 @@
     padding: 10px;
     /* background-color:7E8EB; */
 }
-
-.title-list{
+.list-item{
     width: 90%;
+}
+.title-list{
     height: 20px;
     background-color: inherit;
+    display: block;
+    margin: auto;
 }
 /* Task  area */
 
@@ -45,7 +59,10 @@
     z-index: 2;
     overflow: hidden;
     background-color: aliceblue;
+    
 }
+
+
 
 .list li.done label {
     text-decoration: line-through;
@@ -57,3 +74,14 @@
     flex-direction: row;
     justify-content: center;
 }
+
+#html5colorpicker{
+    display: block;
+    margin: auto;
+}
+@media(min-width:700px){
+
+    .new-list-note{
+          width: 500px;
+    }
+    }

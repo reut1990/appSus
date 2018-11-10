@@ -13,7 +13,7 @@ export default{
 
  template: `
     <section class="miss-keep-app">
-      <h1>Miss keep</h1>
+      <h1 class="app-title">Miss keep</h1>
       <div v-if="isShow" class="container">
           <form class="input-form">
               <input v-on:click="inputClicked('text-note')" ref="myInput" type="text" placeholder="type your note..." v-model="noteTxt">
@@ -51,7 +51,6 @@ export default{
         eventBus.$on(CLOSE_COMPONENT, this.close)
     },
     methods: {
-        // this.$refs.myInput.focus()
         inputClicked(componentName) {
             this.isShow = !this.isShow;
             this.component = componentName;
@@ -62,15 +61,11 @@ export default{
         },
         addNote(){
 
-            // console.log('form comp', this.$refs.noteForm.fromData);
             
             missKeepService.addNote(this.$refs.noteForm.fromData);
             this.notesCreated= missKeepService.getNotes();
             this.isShow = true;
-            // console.log(this.$refs.noteForm.fromData);
-            // console.log(this.notesCreated);
-
-            // if(this.$refs.noteForm.type==='new-img')
+        
         },
       
 

@@ -24,3 +24,7 @@
     flex-direction: row;
 }
 
+#html5colorpicker{
+    display: block;
+    margin: auto;
+}
