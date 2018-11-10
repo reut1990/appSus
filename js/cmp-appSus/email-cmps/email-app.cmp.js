@@ -17,10 +17,11 @@ export default {
 
             <!-- <router-view :emails="emails" :email="selectedEmail"
                 @email-open="openEmail"></router-view> -->
+                <section class="email-wrapper">
                 <email-details v-if="emailId && !composeEmail" :email="selectedEmail" @email-closed="resetEmailIdtoNull"></email-details>
-                <email-list v-else-if="displayedEmails.length > 0 && !composeEmail" @isEmailRead="isRead" @isRead="setOpenedEmail(email)" @email-opened="setOpenedEmail" :emails="displayedEmails"></email-list>   
+                <email-list v-else-if="displayedEmails.length > 0 && !composeEmail" @isEmailRead="isRead" @isRead="setOpenedEmail(email)" @deleteEmail="deleteEmail" @email-opened="setOpenedEmail" :emails="displayedEmails"></email-list>   
                 <email-compose v-if="composeEmail"  @closeComposeEmail="closeComposeEmail"></email-compose>  
-            
+                </section>
         <!-- TODO: CHANGE TO ROUNTER IF THERE IS TIME -->
         </section>
     `,
@@ -69,12 +70,12 @@ export default {
 
         filterEmails(filter) {
             this.filter = filter;
-            var prmFilterEmails = emailServices.query(filter);
+            var prmFilterEmails = emailServices.query(this.filter);
             prmFilterEmails.then(emails => this.displayedEmails = emails);
         },
         filterbyKeyword(keyword) {
             this.keyword = keyword;
-            var prmFilterEmailsbyKeyword = emailServices.query(this.filter, keyword);
+            var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
             prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
         },
         closeComposeEmail() {
@@ -85,6 +86,12 @@ export default {
             this.emailCount = emails.readEmails;
             this.totalNumOfEmails = emails.totalNumOfEmails;
             console.log(this.emailCount, this.totalNumOfEmails)
+        },
+        deleteEmail(email){
+            console.log('app', email)
+            emailServices.deleteEmail(email);
+            var prmFilterEmailsbyKeyword = emailServices.query(this.filter, this.keyword);
+            prmFilterEmailsbyKeyword.then(emails => this.displayedEmails = emails);
         }
     },
     computed: {

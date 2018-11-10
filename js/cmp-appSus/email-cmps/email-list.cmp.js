@@ -6,7 +6,7 @@ export default {
         <section class="inbox-container" v-if="emails">
                        
                    <email-preview  @isRead="isRead"
-                   
+                   @deleteEmail="deleteEmail"
                    v-for="email in emails"
                     :email="email"
                    
@@ -34,6 +34,9 @@ export default {
         },
         isRead(email){
             this.$emit('isEmailRead', email);
+        },
+        deleteEmail(email){
+            this.$emit('deleteEmail', email);
         },
         displayEmail(email){
             this.$emit('email-opened', email);

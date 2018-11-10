@@ -7,15 +7,15 @@ export default {
             
 
                <span class="email-subject ">Subject: {{email.subject}}</span>
-               <span class="email-body">Body:{{emailText}}</span> <span class="email-timestamp">{{displayDate}}</span>
-               <button class="delete-email-btn">Delete</button>
-               <button v-on:click="toggleReadStatus" >{{email.isRead}}</button>
+               <span class="email-body">Body:{{emailText}}</span>
+               <span class="email-timestamp">{{displayDate}}</span>
+               <img src='../../email-icons/read.png' class="email-read-btn email-icon"  v-on:click="toggleReadStatus" ></span>
+               <img src='../../email-icons/delete.png' class="delete-email-btn  email-icon" v-on:click="deleteEmail">
+
 
             </section>
     `,
-            // <router-link tag="section" :to="'/email/' + email.id" class="email">
-
-    //   </router-link>
+// v-bind:class="{isReadIcon: email.isRead}
 
     data() {
         return {
@@ -29,10 +29,11 @@ export default {
     },
     methods: {
         toggleReadStatus() {
-            console.log('toggleReadStatus', this.email)
-            this.$emit('isRead', this.email );
-            
+            this.$emit('isRead', this.email );            
         },
+        deleteEmail(){
+            this.$emit('deleteEmail', this.email );            
+        }
        
        
     },

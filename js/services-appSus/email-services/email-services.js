@@ -83,12 +83,22 @@ function _createEmail() {
 function getEmailCount(){
     var emails = storageService.load(EMAILS_KEY);
     var readEmails = emails.filter(email=> email.isRead).length
-    return {readEmails:readEmails, totalNumOfEmails: emails.length }
-     ;
+    return {readEmails:readEmails, totalNumOfEmails: emails.length };
+}
+
+function deleteEmail(email){
+    var emailID = email.id;
+    var emails = storageService.load(EMAILS_KEY);
+    var idx = emails.findIndex(function(email){
+        return email.id === emailID;
+    })
+    emails.splice(idx, 1);
+    storageService.store(EMAILS_KEY, emails);
 }
 export const emailServices = {
     query,
     saveEmails,
     updateEmailStatus,
-    getEmailCount
+    getEmailCount,
+    deleteEmail
 }

@@ -3,7 +3,7 @@
 
 export default {
     template: `
-        <section class="">
+        <section class="email-filter">
 
         <input type="radio" value="all" v-model="filter">
         <label for="all">All</label>
