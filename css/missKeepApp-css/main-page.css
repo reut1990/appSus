@@ -97,9 +97,23 @@
     border-radius: 25px;
     font-family: cursive;
     margin: 5px;
+    cursor: pointer;
 }
 
 
+
+/* *******************search input ********************8 */
+.input-search{
+    display: flex;
+    flex-direction: row;;
+     justify-content: center;
+     border:2px outset gray;
+     width: fit-content;
+      margin: auto;
+     box-shadow:#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, rgb(45, 178, 255) 0px 0px 20px, rgb(45, 178, 255) 0px 0px 30px, rgb(45, 178, 255) 0px 0px 40px, rgb(45, 178, 255) 0px 0px 50px, rgb(45, 178, 255) 0px 0px 75px;
+     padding: 0 25px;
+     margin-top: 5px;
+}
  @media(min-width:700px){/* tablet  */
  }
  
