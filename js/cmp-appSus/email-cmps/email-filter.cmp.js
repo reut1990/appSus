@@ -15,7 +15,7 @@ export default {
         <input type="checkbox" value="date" v-model="sortByDate" >
         <label for="date">Filter By Date</label>
         
-        <input  v-model.trim="userKeyword" placeholder="Search your emails" type="text">    
+        <input class="keywordSearch" v-model.trim="userKeyword" placeholder="Search your emails" type="text">    
         
         </section>
     `,

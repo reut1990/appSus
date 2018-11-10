@@ -78,7 +78,7 @@ function sortByDate(){
 }
 
 function _createEmail() {
-    var emailLength = utilService.getRandomInt(2000, 4000)
+    var emailLength = utilService.getRandomInt(1000, 3000)
     var email = {
         id: utilService.makeId(),
         subject: utilService.makeLorem(20),
