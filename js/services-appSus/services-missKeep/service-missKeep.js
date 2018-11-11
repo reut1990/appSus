@@ -1,7 +1,7 @@
 // managing the data
 'use strict;'
 
-import { utilService} from '../../utils.js'
+import {utilService} from '../../utils.js'
 const NOTES_KEY = 'notes';
 
 
