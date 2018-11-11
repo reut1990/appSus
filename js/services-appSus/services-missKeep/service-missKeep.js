@@ -2,6 +2,7 @@
 'use strict;'
 
 import {utilService} from '../../utils.js'
+
 const NOTES_KEY = 'notes';
 
 
